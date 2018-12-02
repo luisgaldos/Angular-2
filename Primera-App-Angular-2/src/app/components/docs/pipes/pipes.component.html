@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row mt-3">
+    <p>Enlaces de Interés: <span><a href="https://angular.io/guide/pipes" target="_blank">Documentación Oficial</a></span>
+    <span>, </span><span><a href="https://angular.io/api?type=pipe" target="_blank">API</a></span></p>
+  </div>
+
+  <p>
+    Los <b>pipes</b> en Angular 2 son lo mismo que los filtros en AngularJS, es
+    decir, nos permiten alterar la forma en la que se van a visualizar los
+    datos. Se utilizan mediante el símbolo <b>|</b>.
+  </p>
+
+  <div class="row">
+    <div class="col">
+      <header>Pipes Angular</header>
+      <ul>
+        <li><b>UpperCase</b> : {{ "UpperCase" | uppercase }}</li>
+        <li><b>LowerCase</b> : {{ "LowerCase" | lowercase }}</li>
+        <li>
+          <b>Date:</b>
+          <ul>
+            <li><b>Sin pipe:</b> {{ fecha }}</li>
+            <li><b>Pipe por Defecto:</b> {{ fecha | date }}</li>
+            <li><b>Pipe con expresión:</b> {{ fecha | date: "yyyy-MM-dd" }}</li>
+          </ul>
+        </li>
+        <li><b>Number:</b></li>
+        <ul>
+          <li><b>Sin Pipe:</b> {{ numero }}</li>
+          <li><b>Pipe por defecto:</b> {{ numero | number }}</li>
+          <li><b>Pipe con expresión:</b> {{ numero | number: "1.2-2" }}</li>
+        </ul>
+      </ul>
+    </div>
+    <div class="col">
+      <header>Pipes Propios</header>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/bDcD0Cqx6io"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>

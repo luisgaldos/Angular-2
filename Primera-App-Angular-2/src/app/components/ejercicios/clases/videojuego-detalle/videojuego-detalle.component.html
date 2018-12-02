@@ -1,0 +1,66 @@
+<div class="container">
+
+    <div class="row">
+      
+      <div class="col justify-content-center">
+          <h2>{{ title }}</h2>
+          <p>Componente para aprender a manejar clases o Pojos en Angular.</p>
+          <p>Todas las clases se guardarán en la carpeta <i>model</i>.</p>
+      </div>
+  
+      <div class="col">
+        <h3>{{ videojuego.titulo }}</h3>
+        <p>Usamos el pipe para mostrar el Object en formato JSON</p>
+        <p>{{ videojuego | json }}</p>
+      </div>
+  
+      <div class="col">
+          <div class="card" style="width: 18rem;">
+            <span class="badge badge-{{ videojuego.alquilado ? 'danger' : 'success'}}">
+              {{ videojuego.alquilado ? 'Alquilado' : 'Disponible'}}
+            </span>
+            <img class="card-img-top" src="{{ videojuego.imagen }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ videojuego.titulo }} - {{ videojuego.anyo }}</h5>
+              <p class="card-text">{{ videojuego.descripcion }}</p>
+              <span class="precio">{{ videojuego.precio }}</span>
+          </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col">
+        <header>Videojuegos con Pipe JSON</header>
+        <p>{{ videojuegos | json }}</p>
+      </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+          <header>Listado de VideoJuegos</header>
+          <ul class="list-group">
+            <li *ngFor="let v of videojuegos" class="list-group-item disabled">
+              {{ v.titulo }} - {{ v.alquilado }}
+            </li>
+          </ul>
+      </div>
+  
+      <div class="col">
+          <ul class="list-group">
+            <header>Alquilados</header>
+            <li *ngFor="let v of videojuegos | alquilado : true" class="list-group-item disabled">
+              {{ v.titulo }} - {{ v.alquilado }}
+            </li>
+          </ul>
+      </div>
+  
+      <div class="col">
+          <ul class="list-group">
+            <header>Disponibles</header>
+            <li *ngFor="let v of videojuegos | alquilado : false" class="list-group-item disabled">
+              {{ v.titulo }} - {{ v.alquilado }}
+            </li>
+          </ul>
+      </div>
+    </div> <!--./row -->
+  </div>

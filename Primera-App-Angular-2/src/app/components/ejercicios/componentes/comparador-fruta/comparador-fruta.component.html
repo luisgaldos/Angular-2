@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-3">
+    <ul>
+      <li *ngFor="let f of frutas" class="list-group-item active">
+        {{ f.nombre }} <button (click)="seleccionar(f)">Ver</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col">
+    <div class="row">
+      <div class="col"><app-fruta-card [_fruta]="fruta1"></app-fruta-card></div>
+      <div class="col"><app-fruta-card [_fruta]="fruta2"></app-fruta-card></div>
+    </div>
+  </div>
+</div>

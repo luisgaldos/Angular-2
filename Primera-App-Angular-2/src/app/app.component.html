@@ -1,0 +1,56 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand ml-0" href="#">Navbar</a></mdb-navbar-brand>
+  <!-- Collapsible content -->
+  <links>
+      <!-- Links -->
+      <ul class="navbar-nav">
+
+          <!-- Dropdown DOCs -->
+          <li class="nav-item dropdown" dropdown>
+              <button dropdownToggle mdbWavesEffect type="button" class="btn btn-primary dropdown-toggle" mdbWavesEffect>
+              DOCs<span class="caret"></span></button>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                  <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/doc-general']">General</a>
+                  <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/doc-pipes']">Pipes</a>
+              </div>
+          </li>
+          <!-- Dropdown COMPONENTES -->
+          <li class="nav-item dropdown" dropdown>
+              <button dropdownToggle mdbWavesEffect type="button" class="btn btn-primary dropdown-toggle" mdbWavesEffect>
+              Componentes</button>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                  <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/comp-primer']">Primer Componente</a>
+                  <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/comp-alumno']">Alumno</a>
+                  <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/comp-arrays']">Arrays</a>
+                  <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/comp-comparador']">Comparador</a>
+              </div>
+          </li>
+          <!-- Dropdown CLASES -->
+          <li class="nav-item dropdown" dropdown>
+              <button dropdownToggle mdbWavesEffect type="button" class="btn btn-primary dropdown-toggle" mdbWavesEffect>
+                Clases</button>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/clase-videojuego']">Primer Componente</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/clase-persona']">Arrays</a>
+                </div>
+        </li>
+
+      </ul>
+      <!-- Links -->
+
+      <!-- Search form -->
+      <form class="form-inline waves-light ml-auto" mdbWavesEffect>
+          <div class="md-form mt-1">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          </div>
+      </form>
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
+
+<router-outlet></router-outlet> <!-- Necesario para usar routerLink-->
+

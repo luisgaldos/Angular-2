@@ -1,0 +1,17 @@
+
+<div style="height: 80vh">
+  <div class="flex-center flex-column">
+    <h2 class="animated fadeIn mb-4">
+      Primer componente: {{ title | titlecase }}
+    </h2>
+
+    <p class="animated fadeIn text-muted">
+      Componente generado con el comando:
+    </p>
+    <code>ng (g)enerate (c)omponent {{ title }}</code>
+    <p class="animated fadeIn text-muted mt-3">Recorriendo un array de frutas TS: </p>
+    <ol>
+      <li *ngFor="let f of frutas">{{ f }}</li>
+    </ol>
+  </div>
+</div>

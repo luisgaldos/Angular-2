@@ -1,0 +1,16 @@
+<div class="container">
+  <div *ngIf="fruta.oferta" class="discount">{{ fruta.descuento }}</div>
+  <img src="{{ fruta.imagen }}" alt="Imagen" class="image img img-fluid" />
+  <div class="middle">
+    <div class="text">
+      <p>{{ fruta.nombre | uppercase }}</p>
+      <p class="calorias">{{ fruta.calorias }} Kcal</p>
+      <p>
+        <del *ngIf="fruta.oferta">{{ fruta.precio | currency: "EUR" }}</del>
+        {{
+          fruta.precio - fruta.precio * (fruta.descuento / 100) | currency: "EUR"
+        }}
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+
+  <h2>Jugando con Arrays en TS</h2>
+
+  <div class="row">
+      <div *ngFor="let f of arFrutas" class="col">
+        <app-fruta-card [_fruta]='f'></app-fruta-card>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2>Funciones de Arrays</h2>
+    </div>
+  </div>
+  
+  <div class="row">
+  
+    <div class="col">
+      <header>Array Map</header>
+      <p>Usamos la función <b>map</b> para obtener los nombres de
+        las frutas.</p>
+      <ul>
+  
+        <li *ngFor="let n of nombres">{{ n }}</li>
+      </ul>
+    </div>
+    <div class="col">
+      <header>Array Reduce</header>
+      <p>Usamos la función <b>reduce</b> para obtener el total de los precios.</p>
+      <p>El precio total es: {{ precioTotal }}</p>
+    </div>
+    <div class="col">
+      <header>Array Filter</header>
+      <p>Usamos la función <b>filter</b> para obtener las frutas en oferta.</p>
+      <ul><li *ngFor="let o of ofertas">{{ o.nombre }}</li></ul>
+    </div>
+  </div>
+
+</div>
+
