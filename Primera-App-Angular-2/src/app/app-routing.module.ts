@@ -11,6 +11,7 @@ import { JugandoArraysComponent } from './components/ejercicios/componentes/juga
 import { ComparadorFrutaComponent } from './components/ejercicios/componentes/comparador-fruta/comparador-fruta.component';
 import { VideojuegoDetalleComponent } from './components/ejercicios/clases/videojuego-detalle/videojuego-detalle.component';
 import { PersonasComponent } from './components/ejercicios/clases/personas/personas.component';
+import { TareasComponent } from './components/ejercicios/clases/tareas/tareas.component';
 
 const routes: Routes = [
   { path: 'home', component :  HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'comp-comparador', component : ComparadorFrutaComponent },
   { path: 'clase-videojuego', component : VideojuegoDetalleComponent },
   { path: 'clase-persona', component : PersonasComponent },
+  { path: 'clase-tarea', component : TareasComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

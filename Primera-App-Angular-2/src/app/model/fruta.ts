@@ -9,14 +9,17 @@ export class Fruta {
     private _oferta: boolean;
     private _descuento: number;
     private _imagen: string;
-   
 
-    constructor(nombre, precio, calorias, colores, oferta) {
-        this._nombre = nombre;
-        this._precio = precio;
-        this._calorias = calorias;
-        this._colores = colores;
-        this._oferta = oferta;
+    private _cantidad: number;
+
+    constructor() {
+        this._nombre = 'Melocotón';
+        this._precio = 1.20;
+        this._calorias = 100;
+        this._colores = [Colores.A, Colores.V];
+        this._oferta = true;
+        this.descuento = 10;
+        this.imagen = "";
     }
 
     public get nombre(): string {
@@ -67,5 +70,13 @@ export class Fruta {
     public set imagen(value: string) {
         this._imagen = value;
     }
+
+    public get cantidad(): number {
+        return this._cantidad;
+    }
+    public set cantidad(value: number) {
+        this._cantidad = value;
+    }
+   
 
 }

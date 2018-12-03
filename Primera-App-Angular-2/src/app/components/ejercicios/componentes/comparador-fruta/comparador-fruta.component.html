@@ -1,16 +1,45 @@
-<div class="row">
+<main class="container">
   <div class="col-3">
     <ul>
       <li *ngFor="let f of frutas" class="list-group-item active">
-        {{ f.nombre }} <button (click)="seleccionar(f)">Ver</button>
+        {{ f.nombre }} <button (click)="seleccionar(f)" class="float-right">Ver</button>
       </li>
     </ul>
   </div>
+  <div class="row">
 
-  <div class="col">
-    <div class="row">
-      <div class="col"><app-fruta-card [_fruta]="fruta1"></app-fruta-card></div>
-      <div class="col"><app-fruta-card [_fruta]="fruta2"></app-fruta-card></div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <app-fruta-card [_fruta]="fruta1" [_fruta2]="fruta2" (clickComprar)="actualizarCarro($event)"></app-fruta-card>
+        </div>
+        <div class="col">
+          <app-fruta-card [_fruta]="fruta2" [_fruta2]="fruta1" (clickComprar)="actualizarCarro($event)"></app-fruta-card>
+        </div>
+      </div>
     </div>
   </div>
+<div *ngIf="carro" class="carro">
+  <ul>
+      <li *ngFor="let c of carro" class="list-group-item">
+        <button (click)="eliminar(c)" class="btn-cerrar btn-sm btn-warning">x</button> 
+        <div class="row">
+            <div class="col">
+                <span class="text">{{ c.nombre }}</span>
+            </div>
+            <div class="col">
+                <span><img src="{{ c.imagen }}" class="miniatura ml-auto"></span>
+             </div>
+         </div>
+        <div class="row">
+          <span class="text mt-2">€/Ud. {{ c.precio | currency: 'EUR' }} </span>
+          <span><button (click)="menos(c)" class="btn-sm btn-danger">-</button></span>
+          <span class="text">{{ c.cantidad }} UDs.</span>
+          <span><button (click)="mas(c)" class="btn-sm btn-success">+</button></span>
+          <span class="text">Total: {{ c.precio * c.cantidad | currency: 'EUR' }}  </span>
+        </div>
+      </li>
+  </ul>
+  <p class="text text-right"><b>TOTAL: {{ precioTotal | currency: 'EUR'}}</b></p>
 </div>
+</main>

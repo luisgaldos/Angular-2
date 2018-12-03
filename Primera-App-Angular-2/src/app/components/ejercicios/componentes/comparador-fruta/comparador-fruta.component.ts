@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Colores } from '../../../../model/colores.enum';
 import { Fruta } from '../../../../model/fruta';
+import { FrutaService } from '../../../../providers/fruta.service';
 
 @Component({
   selector: 'app-comparador-fruta',
@@ -9,52 +10,99 @@ import { Fruta } from '../../../../model/fruta';
 })
 export class ComparadorFrutaComponent implements OnInit {
 
-  
   frutas: Fruta[];
+  carro: Fruta[];
   fruta1: Fruta;
   fruta2: Fruta;
 
-  constructor() { }
+  preciosCant: number[];
+  precioTotal: number;
 
-  ngOnInit() {
-    this.inicializarFrutas();
-    this.fruta1 = this.frutas[0];
-    this.fruta2 = this.frutas[1];
+  constructor(public servicioFruta: FrutaService) { 
+    this.preciosCant = [];
+    this.precioTotal = 0;
+    this.fruta1 = new Fruta();
   }
 
-  inicializarFrutas(): void {
-    
-    this.frutas = [];
+  ngOnInit() {
 
-    let bananaColores: Colores[];
-    bananaColores = [Colores.A, Colores.N];
+    this.servicioFruta.getAll().subscribe(data => {
+      console.log('Datos recibidos... %o', data);
+      this.frutas = [];
+      this.frutas = data.map(element => {
+        console.log(element);
+        element;
+      }
+        );
+    });
 
-    let f = new Fruta("Banana", 3.15, 500, bananaColores, true);
-    f.imagen = 'https://png.pngtree.com/element_origin_min_pic/16/07/06/17577cd1da7eaaa.jpg';
-    f.descuento = 10;
-    this.frutas.push(f);
-
-    let peraColores: Colores[];
-    peraColores = [Colores.A, Colores.V];
-
-    f = new Fruta("Pera", 2.00, 350, peraColores, false);
-    f.descuento = 0;
-    f.imagen = 'https://pngimage.net/wp-content/uploads/2018/06/pera-png.png';
-    this.frutas.push(f);
-
-    let fresaColores: Colores[];
-    fresaColores = [Colores.P, Colores.R, Colores.V];
-
-    f = new Fruta("Fresa", 0.75, 100, fresaColores, true);
-    f.descuento = 10;
-    f.imagen = 'https://banner2.kisspng.com/20180328/jxe/kisspng-strawberry-pie-fruit-strawberry-5abba216a60cc0.7624839615222461666802.jpg';
-    this.frutas.push(f);
+    this.fruta1 = this.frutas[0];
+    this.fruta2 = this.frutas[1];
+    this.carro = [];
   }
 
   seleccionar(fruta : Fruta) {
     console.log ('Fruta seleccionada: ' + fruta);
     this.fruta2 = this.fruta1;
     this.fruta1 = fruta;
+    
+  }
+
+  actualizarCarro(event: Event) {
+    console.debug('Comprar ');
+
+    let f: Fruta = event['frutaClick'];
+    let ind = this.carro.indexOf(f);
+
+    console.log('Fruta comprada: ' + f.nombre);
+
+    if ( ind < 0) 
+    {
+      f.cantidad++;
+      this.carro.push(f);  
+    } 
+    else 
+    {
+      this.carro[ind].cantidad++;
+    }
+
+    this.calcularPrecioTotal();
+    console.log('El precio total es de: ' + this.precioTotal)
+  }
+
+  calcularPrecioTotal(): void {
+    this.preciosCant = [];
+
+    this.preciosCant = this.carro.map(f => f.cantidad * f.precio);
+
+    this.precioTotal = this.preciosCant.reduce( (c, p) => c + p);
+  }
+
+  menos(f: Fruta): void {
+    let ind = this.carro.indexOf(f);
+    if (this.carro[ind].cantidad > 1) 
+    {
+      this.carro[ind].cantidad--;
+    }
+    else 
+    {
+      this.eliminar(f);
+    }
+    this.calcularPrecioTotal();
+  }
+
+  mas(f: Fruta): void {
+    let ind = this.carro.indexOf(f);
+    this.carro[ind].cantidad++;
+    this.calcularPrecioTotal();
+  }
+
+  eliminar(f: Fruta): void {
+    console.log('Click eliminar');
+    let ind = this.carro.indexOf(f);
+    this.carro[ind].cantidad=0;
+    this.carro.splice(ind, 1);
+    this.calcularPrecioTotal();
   }
 
 }
