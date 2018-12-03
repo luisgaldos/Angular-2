@@ -22,6 +22,7 @@ export class ComparadorFrutaComponent implements OnInit {
     this.preciosCant = [];
     this.precioTotal = 0;
     this.fruta1 = new Fruta();
+    this.fruta2 = new Fruta();
   }
 
   ngOnInit() {
@@ -29,15 +30,13 @@ export class ComparadorFrutaComponent implements OnInit {
     this.servicioFruta.getAll().subscribe(data => {
       console.log('Datos recibidos... %o', data);
       this.frutas = [];
-      this.frutas = data.map(element => {
-        console.log(element);
-        element;
-      }
+      this.frutas = data.map(element => element
         );
+        this.fruta1 = this.frutas[0];
+        this.fruta2 = this.frutas[1];
     });
 
-    this.fruta1 = this.frutas[0];
-    this.fruta2 = this.frutas[1];
+    
     this.carro = [];
   }
 
@@ -49,16 +48,13 @@ export class ComparadorFrutaComponent implements OnInit {
   }
 
   actualizarCarro(event: Event) {
-    console.debug('Comprar ');
 
     let f: Fruta = event['frutaClick'];
     let ind = this.carro.indexOf(f);
 
-    console.log('Fruta comprada: ' + f.nombre);
-
     if ( ind < 0) 
     {
-      f.cantidad++;
+      f.cantidad = 1;
       this.carro.push(f);  
     } 
     else 
@@ -71,11 +67,16 @@ export class ComparadorFrutaComponent implements OnInit {
   }
 
   calcularPrecioTotal(): void {
-    this.preciosCant = [];
 
-    this.preciosCant = this.carro.map(f => f.cantidad * f.precio);
+    if (this.carro.length > 0) {
 
-    this.precioTotal = this.preciosCant.reduce( (c, p) => c + p);
+      this.preciosCant = this.carro.map(f => f.cantidad * f.precio);
+      this.precioTotal = this.preciosCant.reduce( (c, p) => c + p);
+
+    } else {
+      this.precioTotal = 0;
+    }
+    
   }
 
   menos(f: Fruta): void {
@@ -88,7 +89,9 @@ export class ComparadorFrutaComponent implements OnInit {
     {
       this.eliminar(f);
     }
+
     this.calcularPrecioTotal();
+    
   }
 
   mas(f: Fruta): void {
@@ -101,7 +104,14 @@ export class ComparadorFrutaComponent implements OnInit {
     console.log('Click eliminar');
     let ind = this.carro.indexOf(f);
     this.carro[ind].cantidad=0;
-    this.carro.splice(ind, 1);
+    if (this.carro.length > 0) {
+      
+      this.carro.splice(ind, 1);
+    
+    } else {
+      this.carro = [];
+    }
+    
     this.calcularPrecioTotal();
   }
 

@@ -5,9 +5,9 @@
       { "id": 3, "titulo": "Dar REACT.js en clase.", "terminado": false }
     ],
     "frutas": [
-        { "nombre": "Fresa", "precio": "1.20", "calorias": "100", "colores": "Rojo, Amarillo, Verde", "oferta": false, "descuento": "10", "imagen": "http://nutrium.co/static-pictures-subud/all/23700605264.png" },
-        { "nombre": "Kiwi", "precio": "1.20", "calorias": "100", "colores": "Rojo, Amarillo, Verde", "oferta": false, "descuento": "10", "imagen": "https://banner2.kisspng.com/20180328/krq/kisspng-juice-smoothie-kiwifruit-slice-kiwi-5abb8c1a991d38.2919996615222405386272.jpg" },
-        { "nombre": "Plátano", "precio": "1.20", "calorias": "100", "colores": "Rojo, Amarillo, Verde", "oferta": false, "descuento": "10", "imagen": "https://banner2.kisspng.com/20180320/wpq/kisspng-juice-banana-fruit-clip-art-pic-banana-png-5ab158aca824e1.8867645115215720126887.jpg" },
-        { "nombre": "Arándanos", "precio": "1.20", "calorias": "100", "colores": "Rojo, Amarillo, Verde", "oferta": false, "descuento": "10", "imagen": "https://banner2.kisspng.com/20180613/plp/kisspng-juice-blueberry-tea-organic-food-berry-juice-5b215e5f201ab4.7046832215289135031315.jpg" }
+        { "nombre": "Fresa", "precio": "1.20", "calorias": "100", "colores": "Rojo, Amarillo, Verde", "oferta": true, "descuento": "10", "imagen": "http://nutrium.co/static-pictures-subud/all/23700605264.png" },
+        { "nombre": "Kiwi", "precio": "1.20", "calorias": "100", "colores": "Rojo, Amarillo, Verde", "oferta": true, "descuento": "10", "imagen": "https://banner2.kisspng.com/20180328/krq/kisspng-juice-smoothie-kiwifruit-slice-kiwi-5abb8c1a991d38.2919996615222405386272.jpg" },
+        { "nombre": "Plátano", "precio": "1.20", "calorias": "100", "colores": "Rojo, Amarillo, Verde", "oferta": true, "descuento": "10", "imagen": "https://banner2.kisspng.com/20180320/wpq/kisspng-juice-banana-fruit-clip-art-pic-banana-png-5ab158aca824e1.8867645115215720126887.jpg" },
+        { "nombre": "Arándanos", "precio": "1.20", "calorias": "100", "colores": "Rojo, Amarillo, Verde", "oferta": true, "descuento": "10", "imagen": "https://banner2.kisspng.com/20180613/plp/kisspng-juice-blueberry-tea-organic-food-berry-juice-5b215e5f201ab4.7046832215289135031315.jpg" }
       ]
   }

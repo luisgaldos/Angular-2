@@ -18,8 +18,9 @@ export class Fruta {
         this._calorias = 100;
         this._colores = [Colores.A, Colores.V];
         this._oferta = true;
-        this.descuento = 10;
-        this.imagen = "";
+        this._descuento = 10;
+        this._imagen = "";
+        this._cantidad = 0;
     }
 
     public get nombre(): string {

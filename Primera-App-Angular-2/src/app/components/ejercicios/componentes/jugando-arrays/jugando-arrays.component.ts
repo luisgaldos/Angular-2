@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Colores } from '../../../../model/colores.enum';
 import { Fruta } from '../../../../model/fruta';
+import { FrutaService } from '../../../../providers/fruta.service';
 
 @Component({
   selector: 'app-jugando-arrays',
@@ -16,9 +17,9 @@ export class JugandoArraysComponent implements OnInit {
   primeraFrutaOferta : Fruta;
   frutaOfertaVerde: Fruta;
   
-  constructor() { 
+  constructor(public servicioFruta: FrutaService) { 
 
-    console.trace('Constructor JugandoArraysComponent');
+    console.log('Constructor JugandoArraysComponent');
     this.arFrutas = [];
     this.ofertas = [];
     this.nombres = [];
@@ -28,15 +29,30 @@ export class JugandoArraysComponent implements OnInit {
 
   ngOnInit() {
 
-    console.trace('JugandoArraysComponent OnInit()');
+    console.log('JugandoArraysComponent OnInit()');
+
+    this.servicioFruta.getAll().subscribe(data => 
+      this.arFrutas = data.map(
+        element => element),
+        error => console.log("Error: ", error),
+        () => { // OBSERVABLE COMPLETO
+          // PROGRAMACION FUNCIONAL
+          console.log('Observer got a complete notification');
+          
+        });
+        this.resolver();
   
-    //this.inicializarFrutas();
-    // PROGRAMACION FUNCIONAL
-    this.obtenerOfertas();
-    this.obtenerNombreFrutas();
-    this.calcularPrecioTotal()
-    this.obtenerPrimeraFrutaVerdeEnOferta();
-    
+  }
+
+  resolver(): void {
+
+    if (this.arFrutas.length > 0) {
+      this.obtenerOfertas();
+      this.obtenerNombreFrutas();
+      this.calcularPrecioTotal()
+      this.obtenerPrimeraFrutaVerdeEnOferta();
+    }
+
   }
 
   obtenerOfertas(): void {
@@ -48,6 +64,7 @@ export class JugandoArraysComponent implements OnInit {
   }
 
   calcularPrecioTotal(): void {
+    this.precioTotal = 0;
     this.precioTotal = this.arFrutas.map(fruta => fruta.precio).reduce( (c, p) => c + p);
   }
 

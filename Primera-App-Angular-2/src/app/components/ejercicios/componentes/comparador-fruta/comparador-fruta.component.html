@@ -1,11 +1,14 @@
-<main class="container">
-  <div class="col-3">
-    <ul>
-      <li *ngFor="let f of frutas" class="list-group-item active">
-        {{ f.nombre }} <button (click)="seleccionar(f)" class="float-right">Ver</button>
-      </li>
-    </ul>
-  </div>
+<aside class="float-left mt-2">
+    <div class="col">
+      <ul>
+        <li *ngFor="let f of frutas" class="list-group-item active">
+          {{ f.nombre }} <button (click)="seleccionar(f)" class="float-right">Ver</button>
+        </li>
+      </ul>
+    </div>
+</aside>
+<main>
+  
   <div class="row">
 
     <div class="col">
@@ -22,15 +25,16 @@
 <div *ngIf="carro" class="carro">
   <ul>
       <li *ngFor="let c of carro" class="list-group-item">
-        <button (click)="eliminar(c)" class="btn-cerrar btn-sm btn-warning">x</button> 
         <div class="row">
-            <div class="col">
-                <span class="text">{{ c.nombre }}</span>
-            </div>
-            <div class="col">
-                <span><img src="{{ c.imagen }}" class="miniatura ml-auto"></span>
-             </div>
-         </div>
+          <button (click)="eliminar(c)" class="btn-cerrar btn-warning">x</button>
+          <div class="col-4">
+              <img src="{{ c.imagen }}" class="miniatura">
+          </div>
+          <div class="col-4">
+              <p class="text">{{ c.nombre }}</p>
+          </div>
+        </div>
+         
         <div class="row">
           <span class="text mt-2">€/Ud. {{ c.precio | currency: 'EUR' }} </span>
           <span><button (click)="menos(c)" class="btn-sm btn-danger">-</button></span>
@@ -40,6 +44,6 @@
         </div>
       </li>
   </ul>
-  <p class="text text-right"><b>TOTAL: {{ precioTotal | currency: 'EUR'}}</b></p>
+  <p class="text text-right w-100"><b>TOTAL: {{ precioTotal | currency: 'EUR'}}</b></p>
 </div>
 </main>
