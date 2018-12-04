@@ -24,8 +24,8 @@ export class FormularioComponent implements OnInit {
     this.formulario = new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(45)]),
       precio: new FormControl('', [Validators.required, Validators.pattern('[0-9]{2}\.[0-9]{2}$')]),
-      calorias: new FormControl('', [Validators.required, NumberValidator.isNumberCheck]),
-      oferta: new FormControl('', [Validators.required, NumberValidator.isNumberCheck]),
+      calorias: new FormControl('', [Validators.required, Validators.pattern('[0-9]\.[0-9]{2}$')]),
+      oferta: new FormControl('', [Validators.required]),
       decuento: new FormControl('', [Validators.required, NumberValidator.isNumberCheck]),
     });
 
@@ -36,8 +36,16 @@ export class FormularioComponent implements OnInit {
   }
 
   cargarFormulario() {
-    this.formulario.controls.nombre.setValue('Fresa');
-    this.formulario.controls.precio.setValue(2.45);
+
+    let fruta = new Fruta();
+
+    this.formulario.controls.nombre.setValue(fruta.nombre);
+    this.formulario.controls.precio.setValue(fruta.precio);
+    this.formulario.controls.oferta.setValue(fruta.oferta);
+    this.formulario.controls.calorias.setValue(fruta.calorias);
+    this.formulario.controls.descuento.setValue(fruta.descuento);
+    this.formulario.controls.imagen.setValue(fruta.imagen);
+
   }
 
   submitar() {
