@@ -2,6 +2,7 @@ import { Colores } from './colores.enum';
 
 export class Fruta {
 
+    private _id: number;
     private _nombre: string;
     private _precio: number;
     private _calorias: number;
@@ -23,6 +24,13 @@ export class Fruta {
         this._cantidad = 0;
     }
 
+    public get id(): number {
+        return this._id;
+    }
+    public set id(value: number) {
+        this._id = value;
+    }
+    
     public get nombre(): string {
         return this._nombre;
     }

@@ -3,19 +3,41 @@
 </div>
 <div class="row">
   <p class="text">Ejemplo de Angular 2 Service que realiza todas las operaciones
-    básicas de un servicio REST.
+    básicas (GET, POST, PUT, DELETE) de un servicio REST.
   </p>
 </div>
-<div class="row justify-content-center">
-  <ul>
-    <li>GET</li>
-    <li>INSERT</li>
-    <li>PUT</li>
-    <li>DELETE</li>
-  </ul>
-</div>
+
 <div class="row">
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let t of tareas">{{ t.titulo }}</li>
+  <div class="col">
+        <div class="custom-control custom-radio">
+          <input type="radio" [(ngModel)]="filtro" [value]="true" [checked]="filtro" class="custom-control-input" name="rbgVer">
+          <label class="custom-control-label" for="rbPendientes">Ver Todas</label>
+        </div>   
+        <!-- Default checked -->
+        <div class="custom-control custom-radio">
+          <input type="radio"  [(ngModel)]="filtro" [value]="false" [checked]="!filtro" class="custom-control-input" name="rbgVer">
+          <label class="custom-control-label" for="rbPendientes">Ver Terminadas</label>
+        </div>
+  </div>
+</div>
+<!-- NUEVA TAREA -->
+<div class="row">
+  <div class="col-lg-2"><button (click)="crearTarea()">Crear Tarea</button></div>
+  <div class="col"><input type="text" class="form-control" [(ngModel)]="nuevaTarea"></div>
+</div>
+
+<!-- LISTADO TAREAS -->
+<div class="row">
+  <ul class="list-group w-100">
+    <li class="list-group-item" [ngClass]="t.terminado ? 'bg-success' : 'bg-danger'" *ngFor="let t of tareas">
+      <div class="row">
+        <div class="col-2">
+          <input type="checkbox" (change)="terminarTarea(t)" [checked]="t.terminado"></div>
+        <div class="col-8"><p class="text text-white">{{ t.titulo }}</p></div>
+        <div class="col float-right">
+            <button class="btn btn-dark" (click)="eliminarTarea(t.id)"><i class="fas fa-trash text-danger fa-2x"></i></button>
+        </div>
+      </div>
+    </li> 
   </ul>
 </div>

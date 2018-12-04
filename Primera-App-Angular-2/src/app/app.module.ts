@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 // COMPONENTES PROPIOS
@@ -25,11 +25,12 @@ import { TareasComponent } from './components/ejercicios/clases/tareas/tareas.co
 // PIPES PROPIOS
 import { PersonasPipe } from './pipes/personas.pipe';
 import { VideojuegoPipe } from './pipes/videojuego.pipe';
+import { TareasPipe } from './pipes/tareas.pipe';
+
 // SERVICIOS PROPIOS
 import { FrutaService } from './providers/fruta.service';
 import { TareasService } from './providers/tareas.service';
-
-
+import { FormularioComponent } from './components/docs/formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -46,13 +47,16 @@ import { TareasService } from './providers/tareas.service';
     VideojuegoPipe,
     AlumnosComponenteComponent,
     CardFrutaComponent,
-    TareasComponent
+    TareasComponent,
+    TareasPipe,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule,
+    FormsModule,  // Enable Banana in a BOX 
+    ReactiveFormsModule,
     AppRoutingModule, 
     HttpClientModule,
     HttpModule

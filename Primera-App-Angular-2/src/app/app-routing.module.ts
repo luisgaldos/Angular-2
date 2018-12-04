@@ -12,11 +12,13 @@ import { ComparadorFrutaComponent } from './components/ejercicios/componentes/co
 import { VideojuegoDetalleComponent } from './components/ejercicios/clases/videojuego-detalle/videojuego-detalle.component';
 import { PersonasComponent } from './components/ejercicios/clases/personas/personas.component';
 import { TareasComponent } from './components/ejercicios/clases/tareas/tareas.component';
+import { FormularioComponent } from './components/docs/formulario/formulario.component';
 
 const routes: Routes = [
   { path: 'home', component :  HomeComponent},
   { path: 'doc-general', component : GeneralComponent },
   { path: 'doc-pipes', component : PipesComponent },
+  { path: 'doc-formularios', component : FormularioComponent },
   { path: 'comp-primer', component : PrimerComponenteComponent },
   { path: 'comp-alumno', component : AlumnosComponenteComponent },
   { path: 'comp-arrays', component : JugandoArraysComponent },
