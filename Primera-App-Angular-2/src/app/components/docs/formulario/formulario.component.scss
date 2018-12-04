@@ -3,8 +3,20 @@ h3, form {
 }
 
 form {
-    padding: 25px;
+    padding: 5vh;
     background-color: #AAA;
     width: 100%;
 }
 
+input[type="checkbox"] {
+  height: 25px;
+  width: 25px;
+}
+
+label.requerido::before {
+  content: "* ";
+}
+
+.v-align {
+  vertical-align: middle !important;
+}

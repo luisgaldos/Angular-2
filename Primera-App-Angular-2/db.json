@@ -71,6 +71,32 @@
       "oferta": true,
       "descuento": "10",
       "imagen": "https://banner2.kisspng.com/20180613/plp/kisspng-juice-blueberry-tea-organic-food-berry-juice-5b215e5f201ab4.7046832215289135031315.jpg"
+    },
+    {
+      "nombre": "Melocotón",
+      "precio": 1.2,
+      "calorias": 100,
+      "colores": [
+        "Amarillo",
+        "Verde"
+      ],
+      "oferta": true,
+      "descuento": 10,
+      "imagen": "",
+      "id": 5
+    },
+    {
+      "nombre": "Melocotón",
+      "precio": 1.2,
+      "calorias": 100,
+      "colores": [
+        "Amarillo",
+        "Verde"
+      ],
+      "oferta": true,
+      "descuento": 10,
+      "imagen": "",
+      "id": 6
     }
   ]
 }

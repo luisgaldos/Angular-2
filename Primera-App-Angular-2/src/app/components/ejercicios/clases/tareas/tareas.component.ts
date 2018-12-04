@@ -28,7 +28,6 @@ export class TareasComponent implements OnInit {
 
   crearTarea() {
 
-    this.visible = true;
     let tarea = new Tarea();
 
     console.log(this.nuevaTarea);

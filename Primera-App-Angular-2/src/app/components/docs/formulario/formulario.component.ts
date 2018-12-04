@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NumberValidator } from '../../../model/number-validator';
 import { Fruta } from '../../../model/fruta';
+import { FrutaService } from '../../../providers/fruta.service';
 
 @Component({
   selector: 'app-formulario',
@@ -12,21 +13,18 @@ export class FormularioComponent implements OnInit {
 
   
   formulario: FormGroup;
+  frutas: Fruta[];
 
-  nombre: FormControl;
-
-  constructor() {
+  constructor(public servicioFruta: FrutaService) {
     console.log('Constructor FormularioComponent');
-    
-    this.nombre = new FormControl();
-    this.nombre.setValue('Melocotón');
 
     this.formulario = new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(45)]),
-      precio: new FormControl('', [Validators.required, Validators.pattern('[0-9]{2}\.[0-9]{2}$')]),
-      calorias: new FormControl('', [Validators.required, Validators.pattern('[0-9]\.[0-9]{2}$')]),
-      oferta: new FormControl('', [Validators.required]),
-      decuento: new FormControl('', [Validators.required, NumberValidator.isNumberCheck]),
+      precio: new FormControl('', [Validators.required]),
+      calorias: new FormControl('', [Validators.required]),
+      oferta: new FormControl(''),
+      descuento: new FormControl(''),
+      imagen: new FormControl('')
     });
 
    }
@@ -54,6 +52,27 @@ export class FormularioComponent implements OnInit {
 
     f.nombre = this.formulario.controls.nombre.value;
     f.precio = this.formulario.controls.precio.value;
+
+    f.oferta = this.formulario.controls.oferta.value;
+    f.descuento = this.formulario.controls.descuento.value;
+    
+    f.calorias = this.formulario.controls.calorias.value;
+    f.imagen = this.formulario.controls.imagen.value;
+
+    this.servicioFruta.add(f).subscribe(data =>
+      this.recargarLista()
+    );
+
+  }
+
+  recargarLista(): void {
+
+    this.servicioFruta.getAll().subscribe(data => {
+      console.log('Datos recibidos... %o', data);
+      this.frutas = [];
+      this.frutas = data.map(element => element
+        );
+    });
   }
 
 }

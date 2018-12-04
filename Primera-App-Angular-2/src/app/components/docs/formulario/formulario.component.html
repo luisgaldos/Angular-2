@@ -1,110 +1,96 @@
 <div class="row">
-  <div class="col">
-    <h2>Formularios ReactJS</h2>
-  </div>
+  <div class="col"><h2>Formularios ReactJS</h2></div>
 </div>
 <div class="row">
   <div class="col mx-auto">
-    <a href="https://angular.io/guide/reactive-forms" target="_blank">Documentación Oficial</a>
+    <a href="https://angular.io/guide/reactive-forms" target="_blank"
+      >Documentación Oficial</a
+    >
   </div>
 </div>
 
 <div class="row">
-  <div class="col-lg-3">
-    <h3>Form Control</h3>
-  </div>
+  <div class="col-lg-3"><h3>Form Control</h3></div>
   <div class="col-lg-8 align-middle">
-    <p>FormControl es un objeto qué se usa en los formularios para tener un control sobre su valor y su estado en el
-      formulario.</p>
+    <p>
+      FormControl es un objeto qué se usa en los formularios para tener un
+      control sobre su valor y su estado en el formulario.
+    </p>
   </div>
 </div>
 
 <div class="row">
   <form class="form">
-    <label for="nombre">Nombre</label>
-    <input type="text" class="ml-3" [formControl]="nombre">
+    <label for="nombre">Nombre</label> <input type="text" class="ml-3" />
   </form>
 </div>
 
 <div class="row">
-  <div class="col-lg-3">
-    <h3>Form Group</h3>
-  </div>
+  <div class="col-lg-3"><h3>Form Group</h3></div>
   <div class="col-lg-8 align-middle">
-    <p>FormGroup es un cojunto de FormControls, el estado de este objeto depende del estado de todos sus objetos, es
-      decir, si uno de los FormControl es inválido, el grupo entero es inválido.</p>
+    <p>
+      FormGroup es un cojunto de FormControls, el estado de este objeto depende
+      del estado de todos sus objetos, es decir, si uno de los FormControl es
+      inválido, el grupo entero es inválido.
+    </p>
   </div>
 </div>
 <div class="row">
-  <div class="col ml-auto"><button class="btn btn-primary" (click)="cargarFormulario()">Rellenar Formulario</button></div>
+  <div class="col">
+    <button class="btn btn-primary ml-auto" (click)="cargarFormulario()">
+      Rellenar Formulario
+    </button>
+  </div>
 </div>
 <div class="row">
-  <form [formGroup]="formulario">
+    <p>Los campos marcados con un * son obligatorios. El botón de <b>Enviar</b> se activa
+    al completar correctamente el formulario.</p>
+  </div>
 
-    <div class="form-group row">
-      <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
-      <div class="col-sm-10">
-        <input type="text" formControlName="nombre" class="form-control" id="nombre" placeholder="De 8 a 45 caracteres.">
-      </div>
-      <small [ngClass]="formulario.controls.nombre.valid ? 'text-success' : 'text-danger'" class="form-text text-muted ml-auto">
-        {{ !formulario.controls.nombre.valid ? 'El campo no tiene la longitud adecuada.' : 'El campo es correcto.' }}
-      </small>
+<div class="row">
+  <form [formGroup]="formulario" (ngSubmit)="submitar()" novalidate>
+    <!--NOMBRE-->
+    <div class="form-group">
+      <label for="nombre" class="requerido">Nombre</label>
+          <input type="text" id="nombre" formControlName="nombre" class="form-control" placeholder="De 2 a 45 caracteres." />
     </div>
 
-    <div class="form-group row">
-      <label for="precio" class="col-sm-2 col-form-label">Precio</label>
-      <div class="col-sm-10">
-        <input type="number" formControlName="precio" placeholder="Formato 0.00" class="form-control" id="precio">
-      </div>
-      <small [ngClass]="formulario.controls.precio.valid ? 'text-success' : 'text-danger'" class="form-text text-muted ml-auto">
-        {{ !formulario.controls.precio.valid ? 'El campo no tiene el formato adecuado.' : 'El campo es correcto.' }}</small>
-    </div>
-
-    <div class="form-group row">
-      <label for="precio" class="col-sm-2 col-form-label">Calorías</label>
-      <div class="col-sm-10">
-        <input type="number" min="0" formControlName="calorias" placeholder="00" class="form-control" id="calorias">
-      </div>
-      <small [ngClass]="formulario.controls.calorias.valid ? 'text-success' : 'text-danger'" class="form-text text-muted ml-auto">
-        {{ !formulario.controls.calorias.valid ? 'El campo no tiene el formato adecuado.' : 'El campo es correcto.' }}</small>
-    </div>
-
-    <div class="form-group row">
-      <label for="color" class="col-sm-2 col-form-label">Nombre</label>
-      <div class="col-sm-10">
-        <input type="text" formControlName="nombre" class="form-control" id="nombre" placeholder="De 8 a 45 caracteres.">
-      </div>
-      <small [ngClass]="formulario.controls.nombre.valid ? 'text-success' : 'text-danger'" class="form-text text-muted ml-auto">
-        {{ !formulario.controls.nombre.valid ? 'El campo no tiene la longitud adecuada.' : 'El campo es correcto.' }}
-      </small>
-    </div>
     <div class="form-row">
-      <div class="col">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="oferta">
-          <label class="form-check-label" for="oferta">Oferta</label>
+      <!--KCAL-->
+      <div class="form-group col-md-6">
+        <label for="kcal" class="requerido">Calorías</label>
+        <input type="number" id="kcal" formControlName="calorias" placeholder="Kcal" class="form-control"/>
+      </div>
+      <!--PRECIO-->
+      <div class="form-group col-md-6">
+        <label for="precio" class="requerido">Precio (€)</label>
+        <input type="number" id="precio" formControlName="precio" min="0" step="0.01" placeholder="Ej: 1,20" class="form-control"/>
+      </div>
+      </div>
+    
+    <div class="form-row">
+      <!--OFERTA?-->
+      
+      <div class="form-group col-md-6 my-auto">
+        <div class="checkbox-inline text-center">
+          <input type="checkbox" id="oferta" formControlName="oferta"/>
+          <label for="oferta" class="checkbox-inline ml-3">Oferta</label>
         </div>
       </div>
-
-      <div class="col">
-        <div class="form-group row">
-          <label for="decuento" class="col col-form-label">Descuento</label>
-          <div class="col">
-            <input type="number" formControlName="precio" placeholder="0.00" class="form-control" id="decuento">
-          </div>
-          <small [ngClass]="formulario.controls.precio.valid ? 'text-success' : 'text-danger'" class="form-text text-muted ml-auto">
-            {{ !formulario.controls.precio.valid ? 'El campo no tiene el formato adecuado.' : 'El campo es correcto.'}}</small>
-        </div>
+      <!--DESCUENTO-->
+      <div class="form-group col-md-6">
+        <label for="descuento">Descuento (%)</label>
+        <input type="number" id="descuento" formControlName="descuento" min="0" max="100" step="5" class="form-control" placeholder="Ej: 10"/>
       </div>
     </div>
 
-    <div class="form-group row">
-      <label for="example-color-input" class="col-2 col-form-label">Color</label>
-      <div class="col-10">
-        <input class="form-control" type="color" value="#563d7c" id="example-color-input">
+      <!-- IMAGEN -->
+      <div class="form-group">
+        <label for="imagen">Imagen</label>
+        <input type="text" id="imagen" formControlName="imagen" class="form-control" placeholder="De 2 a 150 caracteres." />
       </div>
-    </div>
 
-    <input type="submit" value="Crear" [disabled]="formulario.status === 'INVALID'">
+    <input type="submit" value="Crear" [disabled]="formulario.status === 'INVALID'"
+    />
   </form>
 </div>
