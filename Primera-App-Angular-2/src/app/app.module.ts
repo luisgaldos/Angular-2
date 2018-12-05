@@ -13,14 +13,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { GeneralComponent } from './components/docs/general/general.component';
 import { HomeComponent } from './components/home/home.component';
 import { PipesComponent } from './components/docs/pipes/pipes.component';
-import { PrimerComponenteComponent } from './components/ejercicios/componentes/primer-componente/primer-componente.component';
-import { JugandoArraysComponent } from './components/ejercicios/componentes/jugando-arrays/jugando-arrays.component';
-import { ComparadorFrutaComponent } from './components/ejercicios/componentes/comparador-fruta/comparador-fruta.component';
+import { PrimerComponenteComponent } from './components/ejercicios/primeros-pasos/primer-componente/primer-componente.component';
+import { JugandoArraysComponent } from './components/ejercicios/primeros-pasos/jugando-arrays/jugando-arrays.component';
+import { ComparadorFrutaComponent } from './components/ejercicios/primeros-pasos/comparador-fruta/comparador-fruta.component';
 import { VideojuegoDetalleComponent } from './components/ejercicios/clases/videojuego-detalle/videojuego-detalle.component';
 import { PersonasComponent } from './components/ejercicios/clases/personas/personas.component';
-import { AlumnosComponenteComponent } from './components/ejercicios/componentes/alumnos-componente/alumnos-componente.component';
-import { CardFrutaComponent } from './components/ejercicios/componentes/card-fruta/card-fruta.component';
+import { AlumnosComponenteComponent } from './components/ejercicios/primeros-pasos/alumnos-componente/alumnos-componente.component';
+import { CardFrutaComponent } from './components/ejercicios/primeros-pasos/card-fruta/card-fruta.component';
 import { TareasComponent } from './components/ejercicios/clases/tareas/tareas.component';
+import { FrutaRESTComponent } from './components/ejercicios/clases/fruta-rest/fruta-rest.component';
 
 // PIPES PROPIOS
 import { PersonasPipe } from './pipes/personas.pipe';
@@ -30,7 +31,9 @@ import { TareasPipe } from './pipes/tareas.pipe';
 // SERVICIOS PROPIOS
 import { FrutaService } from './providers/fruta.service';
 import { TareasService } from './providers/tareas.service';
-import { FormularioComponent } from './components/docs/formulario/formulario.component';
+import { FormReactivoComponent } from './components/docs/form-reactivo/form-reactivo.component';
+import { FormularioComponent } from './components/ejercicios/clases/fruta-rest/formulario/formulario.component';
+
 
 @NgModule({
   declarations: [
@@ -49,6 +52,8 @@ import { FormularioComponent } from './components/docs/formulario/formulario.com
     CardFrutaComponent,
     TareasComponent,
     TareasPipe,
+    FrutaRESTComponent,
+    FormReactivoComponent,
     FormularioComponent
   ],
   imports: [

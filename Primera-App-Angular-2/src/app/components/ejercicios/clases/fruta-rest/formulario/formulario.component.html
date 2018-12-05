@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary ml-auto" (click)="cargarFormulario()">
+      Rellenar Formulario
+    </button>
+  </div>
+</div>
+<div class="row">
+  <p>Los campos marcados con un * son obligatorios. El botón de <b>Enviar</b> se activa
+    al completar correctamente el formulario.</p>
+</div>
+
+<div class="row">
+  <form [formGroup]="formulario" (ngSubmit)="submitar()" novalidate>
+    <!--NOMBRE-->
+    <div class="form-group">
+      <label for="nombre" class="requerido">Nombre</label>
+      <input type="text" id="nombre" formControlName="nombre" class="form-control" placeholder="De 2 a 45 caracteres." />
+      <small class="text-muted" [ngClass]="nombre.invalid ? 'text-danger' : 'text-success'">
+        {{ nombre.invalid ? 'Rellene este campo' : 'El campo introducido es correcto.' }}
+      </small>
+    </div>
+
+    <div class="form-row">
+      <!--KCAL-->
+      <div class="form-group col-md-6">
+        <label for="kcal" class="requerido">Calorías</label>
+        <input type="number" id="kcal" formControlName="calorias" placeholder="Kcal" class="form-control" />
+        <small class="text-muted" [ngClass]="calorias.invalid ? 'text-danger' : 'text-success'">
+          {{ calorias.invalid ? 'Rellene este campo' : 'El campo introducido es correcto.' }}
+        </small>
+      </div>
+      <!--PRECIO-->
+      <div class="form-group col-md-6">
+        <label for="precio" class="requerido">Precio (€)</label>
+        <input type="number" id="precio" formControlName="precio" min="0" step="0.01" placeholder="Ej: 1,20" class="form-control" />
+        <small class="text-muted" [ngClass]="precio.invalid ? 'text-danger' : 'text-success'">
+          {{ precio.invalid ? 'Rellene este campo' : 'El campo introducido es correcto.' }}
+        </small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <!--OFERTA?-->
+      <div class="form-group col-md-6 my-auto">
+        <div class="checkbox-inline text-center">
+          <input type="checkbox" id="oferta" formControlName="oferta" />
+          <label for="oferta" class="checkbox-inline ml-3">Oferta</label>
+        </div>
+      </div>
+      <!--DESCUENTO-->
+      <div class="form-group col-md-6">
+        <label for="descuento">Descuento (%)</label>
+        <input type="number" id="descuento" formControlName="descuento" min="0" max="100" step="5" class="form-control"
+          placeholder="Ej: 10" />
+        <small class="text-muted" [ngClass]="descuento.invalid ? 'text-danger' : 'text-success'">
+          {{ descuento.invalid ? 'Rellene este campo' : 'El campo introducido es correcto.' }}
+        </small>
+      </div>
+    </div>
+
+    <!-- IMAGEN -->
+    <div class="form-group">
+      <label for="imagen">Imagen</label>
+      <input type="text" id="imagen" formControlName="imagen" class="form-control" placeholder="De 2 a 150 caracteres." />
+      <small class="text-muted" [ngClass]="imagen.invalid ? 'text-danger' : 'text-success'">
+        {{ imagen.invalid ? 'Rellene este campo' : 'El campo introducido es correcto.' }}
+      </small>
+    </div>
+    <div class="row">
+        <img class="mt-2 mx-auto"src="{{formulario.controls.imagen.value}}" width="350" height="200" alt="Imagen">
+    </div>
+    <!--COLORES-->
+    <button type='button' class="btn btn-primary" (click)="nuevoColor()">+ Color</button>
+    <div formArrayName="colores" class="form-row">
+      <div *ngFor="let color of formulario.get('colores').controls; let i = index" class="form-row" class="ml-2">
+        <div [formGroupName]="i" class="col">
+          <input type="color" formControlName="color">
+          <button (click)="eliminarColor(i)" type="button" class="ml-2"><i class="fas fa-minus-circle text-danger"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <input type="submit" value="Crear" [disabled]="formulario.status === 'INVALID'" />
+  </form>
+</div>

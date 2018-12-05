@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Colores } from '../../../../model/colores.enum';
 import { Fruta } from '../../../../model/fruta';
 import { FrutaService } from '../../../../providers/fruta.service';
 

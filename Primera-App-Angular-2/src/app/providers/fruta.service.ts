@@ -37,10 +37,16 @@ export class FrutaService {
       "descuento": fruta.descuento,
       "imagen": fruta.imagen
     }
-   
+
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
     return this.http.post(this.ENDPOINT, body, httpOptions);
+  }
+
+  delete(id: number): Observable<any> {
+
+    return this.http.delete(this.ENDPOINT + "/" + id);
+
   }
 }

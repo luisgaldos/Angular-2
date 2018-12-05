@@ -6,7 +6,7 @@ export class Fruta {
     private _nombre: string;
     private _precio: number;
     private _calorias: number;
-    private _colores: Colores[];
+    private _colores: string[];
     private _oferta: boolean;
     private _descuento: number;
     private _imagen: string;
@@ -52,10 +52,10 @@ export class Fruta {
         this._calorias = value;
     }
 
-    public get colores(): Colores[] {
+    public get colores(): string[] {
         return this._colores;
     }
-    public set colores(value: Colores[]) {
+    public set colores(value: string[]) {
         this._colores = value;
     }
 

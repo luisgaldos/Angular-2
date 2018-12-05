@@ -82,11 +82,11 @@
       ],
       "oferta": true,
       "descuento": 10,
-      "imagen": "",
+      "imagen": "http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c175.png",
       "id": 5
     },
     {
-      "nombre": "Melocotón",
+      "nombre": "Manzana",
       "precio": 1.2,
       "calorias": 100,
       "colores": [
@@ -95,8 +95,34 @@
       ],
       "oferta": true,
       "descuento": 10,
-      "imagen": "",
+      "imagen": "http://www.stickpng.com/assets/thumbs/580b57fbd9996e24bc43c112.png",
       "id": 6
+    },
+    {
+      "nombre": "Tomate",
+      "precio": 1.2,
+      "calorias": 100,
+      "colores": [
+        "Amarillo",
+        "Verde"
+      ],
+      "oferta": true,
+      "descuento": 10,
+      "imagen": "https://png.pngtree.com/element_origin_min_pic/00/00/06/1757639210cbd0e.jpg",
+      "id": 7
+    },
+    {
+      "nombre": "Tomate",
+      "precio": 1.2,
+      "calorias": 100,
+      "colores": [
+        "Amarillo",
+        "Verde"
+      ],
+      "oferta": true,
+      "descuento": 10,
+      "imagen": "https://png.pngtree.com/element_origin_min_pic/00/00/06/1757639210cbd0e.jpg",
+      "id": 8
     }
   ]
 }
