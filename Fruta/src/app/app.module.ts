@@ -3,14 +3,17 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
+import { FrutaService } from './providers/fruta.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardComponent } from './componentes/card/card.component';
-import { FrutaService } from './providers/fruta.service';
 import { ComparadorComponent } from './componentes/comparador/comparador.component';
 import { BackofficeComponent } from './componentes/backoffice/backoffice.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { FormularioComponent } from './componentes/formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { LoginComponent } from './componentes/login/login.component';
     CardComponent,
     ComparadorComponent,
     BackofficeComponent,
-    LoginComponent
+    LoginComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { LoginComponent } from './componentes/login/login.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MDBBootstrapModule  // MD-BOOTSTRAP
   ],
   providers: [FrutaService],
   bootstrap: [AppComponent]

@@ -1,9 +1,9 @@
 <div class="container">
-<aside class="float-left mt-2">
+<aside>
   <div class="col">
     <ul>
-      <li *ngFor="let f of frutas" class="list-group-item active">
-        {{ f.nombre }} <button (click)="seleccionar(f)" class="float-right">Ver</button>
+      <li *ngFor="let f of frutas">
+        <button (click)="seleccionar(f)" class="btn btn-success btn-lg">{{ f.nombre }}</button>
       </li>
     </ul>
   </div>
@@ -11,12 +11,8 @@
 <main>
 
 <div class="row">
-      <div class="col my-auto">
         <app-fruta-card [_fruta]="fruta1" [_fruta2]="fruta2" (clickComprar)="actualizarCarro($event)"></app-fruta-card>
-      </div>
-      <div class="col my-auto">
         <app-fruta-card [_fruta]="fruta2" [_fruta2]="fruta1" (clickComprar)="actualizarCarro($event)"></app-fruta-card>
-      </div>
 </div>
 <div *ngIf="carro" class="carro">
 <ul>

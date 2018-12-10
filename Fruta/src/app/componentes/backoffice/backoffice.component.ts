@@ -9,10 +9,14 @@ import { FrutaService } from '../../providers/fruta.service';
 })
 export class BackofficeComponent implements OnInit {
 
+  editField: string;
   frutas: Fruta[];
+  colaFrutas: Fruta[];
 
   constructor( private servicioFruta: FrutaService ) {
     console.trace('BackofficeComponent constructor.');
+    this.frutas = [];
+    this.colaFrutas = [];
    }
 
   ngOnInit() {

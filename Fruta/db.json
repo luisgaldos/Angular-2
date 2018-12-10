@@ -1,106 +1,69 @@
 {
-  "tareas": [
-    {
-      "id": 1,
-      "titulo": "Modificar README.md para indicar cómo arrancar el proyecto.",
-      "terminado": true
-    },
-    {
-      "id": 2,
-      "titulo": "Completar maquetación Fruta-Card y Carrito de la compra.",
-      "terminado": true
-    },
-    {
-      "id": 3,
-      "titulo": "Dar REACT.js en clase.",
-      "terminado": true
-    },
-    {
-      "id": 4,
-      "titulo": "Terminar CRUD mediante Angular 2 Provider.",
-      "terminado": true
-    },
-    {
-      "titulo": "1234",
-      "terminado": false,
-      "id": 5
-    },
-    {
-      "titulo": "Nueva tarea ",
-      "terminado": false,
-      "id": 6
-    }
-  ],
   "frutas": [
     {
-      "id": 1,
-      "nombre": "Fresa",
-      "precio": "1.20",
-      "calorias": "100",
-      "colores": ["#ffff00", "#ff0000", "#00ff00"],
+      "nombre": "Melocotón",
+      "precio": 1.2,
+      "calorias": 100,
+      "colores": [
+        "#FFFF00",
+        "#FF0000"
+      ],
       "oferta": true,
-      "descuento": "10",
-      "imagen": "http://nutrium.co/static-pictures-subud/all/23700605264.png"
+      "descuento": 10,
+      "imagen": "https://banner2.kisspng.com/20180202/xiw/kisspng-cider-apricot-peach-flavor-fruit-apricot-png-transparent-image-5a74831ec1eeb9.5222270315175851827944.jpg",
+      "id": 1
     },
     {
-      "id": 2,
-      "nombre": "Kiwi",
-      "precio": "2.40",
-      "calorias": "150",
-      "colores": ["#ffff00", "#ff0000", "#00ff00"],
+      "nombre": "Mora",
+      "precio": 1.5,
+      "calorias": 150,
+      "colores": [
+        "#FFFF00",
+        "#FF0000"
+      ],
       "oferta": true,
-      "descuento": "10",
-      "imagen": "https://banner2.kisspng.com/20180328/krq/kisspng-juice-smoothie-kiwifruit-slice-kiwi-5abb8c1a991d38.2919996615222405386272.jpg"
-    },
-    {
-      "id": 3,
-      "nombre": "Plátano",
-      "precio": "3.60",
-      "calorias": "200",
-      "colores": ["#ffff00", "#ff0000", "#00ff00"],
-      "oferta": true,
-      "descuento": "10",
-      "imagen": "https://banner2.kisspng.com/20180320/wpq/kisspng-juice-banana-fruit-clip-art-pic-banana-png-5ab158aca824e1.8867645115215720126887.jpg"
-    },
-    {
-      "id": 4,
-      "nombre": "Arándanos",
-      "precio": "4.80",
-      "calorias": "250",
-      "colores": ["#ffff00", "#ff0000", "#00ff00"],
-      "oferta": true,
-      "descuento": "10",
-      "imagen": "https://banner2.kisspng.com/20180613/plp/kisspng-juice-blueberry-tea-organic-food-berry-juice-5b215e5f201ab4.7046832215289135031315.jpg"
+      "descuento": 5,
+      "imagen": "https://www.enterbio.es/8233-thickbox_default/mora.jpg",
+      "id": 2
     },
     {
       "nombre": "Melocotón",
-      "precio": 1.0,
-      "calorias": 80,
-      "colores": ["#ffff00", "#ff0000", "#00ff00"],
+      "precio": 1.2,
+      "calorias": 100,
+      "colores": [
+        "#FFFF00",
+        "#FF0000"
+      ],
       "oferta": true,
       "descuento": 10,
-      "imagen": "http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c175.png",
+      "imagen": "https://banner2.kisspng.com/20180202/xiw/kisspng-cider-apricot-peach-flavor-fruit-apricot-png-transparent-image-5a74831ec1eeb9.5222270315175851827944.jpg",
+      "id": 3
+    },
+    {
+      "nombre": "Melocotón",
+      "precio": 1.2,
+      "calorias": 100,
+      "colores": [
+        "#FFFF00",
+        "#FF0000"
+      ],
+      "oferta": true,
+      "descuento": 10,
+      "imagen": "https://banner2.kisspng.com/20180202/xiw/kisspng-cider-apricot-peach-flavor-fruit-apricot-png-transparent-image-5a74831ec1eeb9.5222270315175851827944.jpg",
+      "id": 4
+    },
+    {
+      "nombre": "Melocotón",
+      "precio": 1.2,
+      "calorias": 100,
+      "colores": [
+        "#FFFF00",
+        "#FF0000"
+      ],
+      "oferta": true,
+      "descuento": 10,
+      "imagen": "https://banner2.kisspng.com/20180202/xiw/kisspng-cider-apricot-peach-flavor-fruit-apricot-png-transparent-image-5a74831ec1eeb9.5222270315175851827944.jpg",
       "id": 5
-    },
-    {
-      "nombre": "Manzana",
-      "precio": 1.2,
-      "calorias": 100,
-      "colores": ["#ffff00", "#ff0000", "#00ff00"],
-      "oferta": false,
-      "descuento": 10,
-      "imagen": "http://www.stickpng.com/assets/thumbs/580b57fbd9996e24bc43c112.png",
-      "id": 6
-    },
-    {
-      "nombre": "Tomate",
-      "precio": 1.2,
-      "calorias": 100,
-      "colores": ["#ffff00", "#ff0000", "#00ff00"],
-      "oferta": false,
-      "descuento": 10,
-      "imagen": "https://png.pngtree.com/element_origin_min_pic/00/00/06/1757639210cbd0e.jpg",
-      "id": 7
     }
   ]
 }

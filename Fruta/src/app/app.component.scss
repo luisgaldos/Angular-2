@@ -1,0 +1,8 @@
+.nav-link {
+  color: #008000;
+  text-transform: uppercase;
+  font-weight: bold;
+  &:hover {
+    color: #FFA500;
+  }
+}

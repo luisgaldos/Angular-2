@@ -17,7 +17,7 @@
   </div>
 
   <!-- comparador -->
-  <div *ngIf="_fruta2">
+  <div *ngIf="_fruta2" class="comparador">
       <p>Precio <span class="{{(_fruta.precio - _fruta2.precio > 0) ? 'text-success' : 'text-danger'}}">{{ _fruta.precio - _fruta2.precio | number:'1.2-2' | currency: 'EUR'}}</span></p>
       <p>Calorias <span class="{{(_fruta.precio - _fruta2.precio > 0) ? 'text-danger' : 'text-success'}}">{{ _fruta.calorias - _fruta2.calorias | number:'1.2-2'}}</span> Kcal</p>
     </div>

@@ -14,12 +14,12 @@ export class Fruta {
 
     constructor() {
         this._nombre = 'Melocotón';
+        this._imagen = "https://banner2.kisspng.com/20180202/xiw/kisspng-cider-apricot-peach-flavor-fruit-apricot-png-transparent-image-5a74831ec1eeb9.5222270315175851827944.jpg";
         this._precio = 1.20;
         this._calorias = 100;
         this._colores = ['#FFFF00', '#FF0000'];
         this._oferta = true;
         this._descuento = 10;
-        this._imagen = "";
         this._cantidad = 0;
     }
 
