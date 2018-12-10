@@ -16,7 +16,7 @@ export class Fruta {
         this._nombre = 'Melocotón';
         this._precio = 1.20;
         this._calorias = 100;
-        this._colores = ['Amarillo', 'Rojo'];
+        this._colores = ['#FFFF00', '#FF0000'];
         this._oferta = true;
         this._descuento = 10;
         this._imagen = "";

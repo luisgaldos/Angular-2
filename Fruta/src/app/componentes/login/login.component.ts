@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
 
   private crearFormularioReactivo(): void {
     this.form = this.fb.group ({
-      nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-      password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]]
+      nombre: ['frutti', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
+      password: ['frutti', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]]
     });
   }
 

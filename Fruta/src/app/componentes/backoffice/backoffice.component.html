@@ -2,24 +2,41 @@
   <table style="width:100%">
     <thead>
       <tr>
-        <th>Miniatura</th>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Calorias</th>
-        <th>Oferta</th>
-        <th>Descuento</th>
-        <th>Colores</th>
+        <th class="text-center">Miniatura</th>
+        <th class="text-center">Nombre</th>
+        <th class="text-center">Precio</th>
+        <th class="text-center">Calorias</th>
+        <th class="text-center">Oferta</th>
+        <th class="text-center">Descuento</th>
+        <th class="text-center">Colores</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let f of frutas">
-      <td><img src="{{ f.imagen }}" alt="Fruta miniatura"></td>
-      <td>{{ f.nombre }}</td>
-      <td>{{ f.precio | number: '1.2-2' | currency: 'EUR' }}</td>
-      <td>{{ f.calorias }}</td>
-      <td><p class="text"><i class="fas fa-{{ f.oferta ? 'check' : 'times'}} text-{{ f.oferta ? 'success' : 'danger'}}"></i></p></td>
-      <td class="mx-auto">{{ f.descuento }}%</td>
+        <td><img class="rounded mx-auto d-block" src="{{ f.imagen }}" alt="Fruta miniatura"></td>
+        <td><p class="text-center">{{ f.nombre }}</p></td>
+        <td><p class="text-center">{{ f.precio | number: '1.2-2' | currency: 'EUR' }}</p></td>
+        <td><p class="text-center">{{ f.calorias }}</p></td>
+        <td><p class="text-center"><i class="fas fa-{{ f.oferta ? 'check' : 'times'}} text-{{ f.oferta ? 'success' : 'danger'}}"></i></p></td>
+        <td><p class="text-center">{{ f.descuento }}%</p></td>
+        <td>
+          <span *ngFor="let c of f.colores">
+            {{c}}
+            <input type="color" value="c">
+          </span>
+        </td>
       </tr>
     </tbody>
+    <tfoot>
+        <tr>
+          <th class="text-center">Miniatura</th>
+          <th class="text-center">Nombre</th>
+          <th class="text-center">Precio</th>
+          <th class="text-center">Calorias</th>
+          <th class="text-center">Oferta</th>
+          <th class="text-center">Descuento</th>
+          <th class="text-center">Colores</th>
+        </tr>
+      </tfoot>
   </table>
 </div>

@@ -1,12 +1,17 @@
 table {
     border-collapse: collapse;
 }
+
+thead tr th, tfoot tr th {
+    padding: 2vh;
+    background-color: #1d4a9cb4;
+}
   
 table, th, td {
     border: 1px solid black;
 }
 
 img {
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 150px;
 }
