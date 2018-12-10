@@ -43,12 +43,11 @@
       </ul>
       <!-- Links -->
 
-      <!-- Search form -->
-      <form class="form-inline waves-light ml-auto" mdbWavesEffect>
-          <div class="md-form mt-1">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          </div>
-      </form>
+      <div class="ml-auto">
+        <a class="nav-item btn btn-danger ml-auto" mdbWavesEffect [routerLink]="['/backoffice']">Backoffice</a>
+        <a class="nav-item btn btn-success ml-auto" mdbWavesEffect [routerLink]="['/login']">Login</a>
+      </div>
+      
   </links>
   <!-- Collapsible content -->
 

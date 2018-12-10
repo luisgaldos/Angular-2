@@ -14,6 +14,11 @@ import { PersonasComponent } from './components/ejercicios/clases/personas/perso
 import { TareasComponent } from './components/ejercicios/clases/tareas/tareas.component';
 import { FrutaRESTComponent } from './components/ejercicios/clases/fruta-rest/fruta-rest.component';
 import { FormReactivoComponent } from './components/docs/form-reactivo/form-reactivo.component';
+import { BackofficeComponent } from './components/backoffice/backoffice.component';
+
+// GUARDS
+import { BackofficeGuardGuard } from './guards/backoffice-guard.guard';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component :  HomeComponent},
@@ -28,6 +33,8 @@ const routes: Routes = [
   { path: 'clase-persona', component : PersonasComponent },
   { path: 'clase-tarea', component : TareasComponent },
   { path: 'clase-fruta', component : FrutaRESTComponent },
+  { path: 'login', component : LoginComponent },
+  { path: 'backoffice', component : BackofficeComponent, canActivate: [BackofficeGuardGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

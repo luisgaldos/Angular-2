@@ -1,0 +1,25 @@
+<div class="container">
+  <table style="width:100%">
+    <thead>
+      <tr>
+        <th>Miniatura</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Calorias</th>
+        <th>Oferta</th>
+        <th>Descuento</th>
+        <th>Colores</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let f of frutas">
+      <td><img src="{{ f.imagen }}" alt="Fruta miniatura"></td>
+      <td>{{ f.nombre }}</td>
+      <td>{{ f.precio | number: '1.2-2' | currency: 'EUR' }}</td>
+      <td>{{ f.calorias }}</td>
+      <td><p class="text"><i class="fas fa-{{ f.oferta ? 'check' : 'times'}} text-{{ f.oferta ? 'success' : 'danger'}}"></i></p></td>
+      <td class="mx-auto">{{ f.descuento }}%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

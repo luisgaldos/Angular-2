@@ -22,6 +22,7 @@ import { AlumnosComponenteComponent } from './components/ejercicios/primeros-pas
 import { CardFrutaComponent } from './components/ejercicios/primeros-pasos/card-fruta/card-fruta.component';
 import { TareasComponent } from './components/ejercicios/clases/tareas/tareas.component';
 import { FrutaRESTComponent } from './components/ejercicios/clases/fruta-rest/fruta-rest.component';
+import { BackofficeComponent } from './components/backoffice/backoffice.component';
 
 // PIPES PROPIOS
 import { PersonasPipe } from './pipes/personas.pipe';
@@ -33,6 +34,13 @@ import { FrutaService } from './providers/fruta.service';
 import { TareasService } from './providers/tareas.service';
 import { FormReactivoComponent } from './components/docs/form-reactivo/form-reactivo.component';
 import { FormularioComponent } from './components/ejercicios/clases/fruta-rest/formulario/formulario.component';
+import { LoginService } from './providers/login.service';
+
+// GUARDS
+import { BackofficeGuardGuard } from './guards/backoffice-guard.guard';
+import { LoginComponent } from './components/login/login.component';
+
+//GUARDS
 
 
 @NgModule({
@@ -54,7 +62,9 @@ import { FormularioComponent } from './components/ejercicios/clases/fruta-rest/f
     TareasPipe,
     FrutaRESTComponent,
     FormReactivoComponent,
-    FormularioComponent
+    FormularioComponent,
+    BackofficeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +77,7 @@ import { FormularioComponent } from './components/ejercicios/clases/fruta-rest/f
     HttpModule
   ],
   providers: [
-    FrutaService, TareasService
+    FrutaService, TareasService, LoginService, BackofficeGuardGuard
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
