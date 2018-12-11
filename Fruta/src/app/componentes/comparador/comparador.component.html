@@ -1,68 +1,84 @@
-<div class="container">
-<aside>
-  <div class="col">
-    <ul class="my-auto">
-      <li *ngFor="let f of frutas">
-        <button (click)="seleccionar(f)" class="btn btn-success btn-lg">{{ f.nombre | titlecase }}</button>
-      </li>
-    </ul>
-  </div>
-</aside>
-<main>
-<div class="row">
-  <div class="col">
-      <label class="radio-inline ml-2">
-        <input type="radio" name="filter" (ngModel)="filtro"  value="">Todas
-      </label>
-      <label class="radio-inline ml-2">
-        <input type="radio" name="filter" (ngModel)="filtro"  value="true">En Oferta
-      </label>
-      <label class="radio-inline ml-2">
-        <input type="radio" name="filter" (ngModel)="filtro"  value="false">Sin Oferta
-      </label>
-  </div>
-  <!--SEARCH-->
-  <div class="col">
-      <input type="text" [(ngModel)]="txtBusqueda" (keyup)="buscar()" placeholder="Busca por nombre...">
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-      <app-fruta-card [_fruta]="fruta1" [_fruta2]="fruta2" (clickComprar)="actualizarCarro($event)" class="ml-auto"></app-fruta-card>
-  </div>
-  <div class="col-md-6">
-      <app-fruta-card [_fruta]="fruta2" [_fruta2]="fruta1" (clickComprar)="actualizarCarro($event)"></app-fruta-card>
-  </div>
-        
-        
-</div>
-<div *ngIf="carro" class="carro">
-<ul>
-    <li *ngFor="let c of carro" class="list-group-item">
+
+<main class="container-fluid">
+  <div class="row">
+    <!--LISTADO FRUTAS-->
+    <aside class="col-lg-2 col-md-12">
+        <ul class="my-auto">
+          <li *ngFor="let f of frutas | frutasOferta: filtro">
+            <button (click)="seleccionar(f)" [class.activo]="f == fruta1 || f == fruta2" class="btn btn-success">{{ f.nombre | titlecase }}</button>
+          </li>
+        </ul>
+    </aside>
+    <div class="col-lg-8 col-md-12">
+
       <div class="row">
-        <button (click)="eliminar(c)" class="btn-cerrar btn-warning">x</button>
-        <div class="col-4">
-            <img src="{{ c.imagen }}" class="miniatura">
+          <div class="col-lg-6 col-md-12">
+            <!--RADIO BUTTONS-->
+            <label class="radio-inline ml-2">
+              <input type="radio" name="filter" [(ngModel)]="filtro"  [value]="undefined" (ngModelChange)="seleccionarFrutas()">Todas
+            </label>
+            <label class="radio-inline ml-2">
+              <input type="radio" name="filter" [(ngModel)]="filtro"  [value]="true" (ngModelChange)="seleccionarFrutas()">En Oferta
+            </label>
+            <label class="radio-inline ml-2">
+              <input type="radio" name="filter" [(ngModel)]="filtro"  [value]="false" (ngModelChange)="seleccionarFrutas()">Sin Oferta
+            </label>
         </div>
-        <div class="col-4">
-            <p class="text">{{ c.nombre }}</p>
+        <!--SEARCH-->
+        <div class="col-lg-6 col-md-12 bg-dark">
+            <form>
+                <input type="search" [(ngModel)]="txtBusqueda" [ngModelOptions]="{standalone: true}" (keyup)="buscar()" placeholder="Busca por nombre...">
+                <i class="fa fa-search"></i>
+            </form>
         </div>
       </div>
-       
+      <!--CARDS FRUTA-->
       <div class="row">
-        <span class="text mt-2">€/Ud. {{ c.precio | currency: 'EUR' }} </span>
-        <span><button (click)="menos(c)" class="btn-sm btn-danger">-</button></span>
-        <span class="text">{{ c.cantidad }} UDs.</span>
-        <span><button (click)="mas(c)" class="btn-sm btn-success">+</button></span>
-        <span class="text">Total: {{ c.precio * c.cantidad | currency: 'EUR' }}  </span>
+          <div class="col-lg-6 col-md-12">
+              <app-fruta-card class="mx-auto" [_fruta]="fruta1" [_fruta2]="fruta2" (clickComprar)="actualizarCarro($event)"></app-fruta-card>
+          </div>
+          <div class="col-lg-6 col-md-12">
+              <app-fruta-card class="mx-auto" [_fruta]="fruta2" [_fruta2]="fruta1" (clickComprar)="actualizarCarro($event)"></app-fruta-card>
+          </div>
       </div>
-    </li>
-</ul>
-<div>
-  
-    <p class="text text-right ml-2"><i class="fas fa-shopping-cart fa-lg"></i><b class="ml-2 mr-2">TOTAL: {{ precioTotal | currency: 'EUR'}}</b></p>
-</div>
+    </div> <!-- ./col-lg-8-->
 
 </div>
-</main>
+<div class="row">
+  
+  <!--CARRO-->
+  <div class="col-lg-4 col-md-12">
+      <div *ngIf="carro" class="carro">
+          <ul>
+              <li *ngFor="let c of carro" class="list-group-item">
+                <div class="row">
+                  <button (click)="eliminar(c)" class="btn-cerrar btn-warning">x</button>
+                  <div class="col-4">
+                      <img src="{{ c.imagen }}" class="miniatura">
+                  </div>
+                  <div class="col-4">
+                      <p class="text">{{ c.nombre | titlecase }}</p>
+                  </div>
+                </div>
+                 
+                <div class="row">
+                  <span class="text mt-2">€/Ud. {{ (c.precio - (c.precio * (c.descuento / 100))) | currency: 'EUR' }} </span>
+                  <span><button (click)="menos(c)" class="btn-sm btn-danger">-</button></span>
+                  <span class="text">{{ c.cantidad }} UDs.</span>
+                  <span><button (click)="mas(c)" class="btn-sm btn-success">+</button></span>
+                  <span class="text">Total: {{ c.cantidad * (c.precio - (c.precio * (c.descuento / 100))) | currency: 'EUR' }}  </span>
+                </div>
+              </li>
+          </ul>
+          <div>
+            
+              <p class="text text-right ml-2"><i class="fas fa-shopping-cart fa-lg"></i><b class="ml-2 mr-2">TOTAL: {{ precioTotal | currency: 'EUR'}}</b></p>
+          </div>
+        </div>
+  </div>
+      
 </div>
+
+</main>
+
+

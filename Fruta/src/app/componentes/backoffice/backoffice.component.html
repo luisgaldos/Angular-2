@@ -1,4 +1,5 @@
 <div class="container">
+  <button type="button" class="btn btn-warning btn-lg btn-close" (click)="cerrarSesion()" title="Cerrar Sesión"><i class="fas fa-power-off"></i></button>
   <div  *ngIf="mensaje" class="bg-warning alert">
       <p class="text-white">{{ mensaje }}</p>
       <button type="button" class="close btn btn-danger" (click)="closeAlert()">X</button>

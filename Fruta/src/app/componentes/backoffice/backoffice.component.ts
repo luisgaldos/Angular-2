@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Fruta } from '../../model/fruta';
 import { FrutaService } from '../../providers/fruta.service';
+import { LoginService } from '../../providers/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-backoffice',
@@ -14,7 +16,7 @@ export class BackofficeComponent implements OnInit {
   colaFrutas: Fruta[];
   mensaje: string;
 
-  constructor( private servicioFruta: FrutaService ) {
+  constructor( private servicioFruta: FrutaService, private servicioLogin: LoginService, private router: Router ) {
     console.trace('BackofficeComponent constructor.');
     this.frutas = [];
     this.colaFrutas = [];
@@ -41,6 +43,15 @@ export class BackofficeComponent implements OnInit {
       this.mensaje = "Entrada eliminada.";
       this.listarFrutas();
     }
+  }
+
+  closeAlert(): void {
+    this.mensaje = "";
+  }
+
+  cerrarSesion(): void {
+    this.servicioLogin.logOut();
+    this.router.navigate(['/comparador']);
   }
 
 }

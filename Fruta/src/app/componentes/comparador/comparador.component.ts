@@ -80,11 +80,20 @@ export class ComparadorComponent implements OnInit {
   }
 
   calcularPrecioTotal(): void {
-
+    this.precioTotal = 0;
     if (this.carro.length > 0) {
+     
+      this.carro.forEach(el => {
+        let precioFinal = 0;
+        if (el.oferta) {
+          precioFinal = el.cantidad * (el.precio - (el.precio * (el.descuento / 100)));
+        } else {
+          precioFinal = el.cantidad * el.precio;
+        }
+        
+        this.precioTotal += precioFinal;
 
-      this.preciosCant = this.carro.map(f => f.cantidad * f.precio);
-      this.precioTotal = this.preciosCant.reduce( (c, p) => c + p);
+      });
 
     } else {
       this.precioTotal = 0;
@@ -143,6 +152,20 @@ export class ComparadorComponent implements OnInit {
     }
     
     console.log(this.frutasBusqueda.length);
+  }
+
+  seleccionarFrutas(): void {
+    let coincidencias;
+    if (this.filtro == true || this.filtro == false) {
+      coincidencias = this.frutas.filter((e) => e.oferta == this.filtro);
+      console.log('Seleccionar Frutas, Coincidencias %o para filtro = ' + this.filtro, coincidencias);
+      if ( coincidencias.length > 1 ) {
+        this.fruta1 = coincidencias[0];
+        this.fruta2 = coincidencias[1];
+      } 
+    }
+    
+    
   }
 
 }

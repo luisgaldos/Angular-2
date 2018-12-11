@@ -1,35 +1,34 @@
 @import "../../../variables.scss";
 aside {
-  top: 0;
-  left: 0;
-  max-width: 20%;
-  position: absolute;
-  height: 100%;
   background-color: $half_green;
-  float: left;
   ul {
     li {
       list-style: none;
       color: $white;
       padding: 1vh;
-      width: 100%;
-      margin-top: 15px;
       button {
         width: 100%;
         margin: 0;
+      }
+      .activo {
+        background-color: $dark-green;
       }
     }
     
   }
 }
-.container {
-  float: right;
+.buscador {
+  border-radius: 10px;
+  width: 100%;
+  line-height: 1.3em;
 }
 .carro {
-    position: absolute;
+    padding-top: 2vh;
+    position: fixed;
     bottom: 0;
     right: 0;
-    background-color: #999;
+    z-index: 99;
+    background-color: $orange;
 }
   
 .miniatura {
@@ -43,4 +42,61 @@ aside {
     right: 0;
     z-index: 100;
 }
-  
+
+//ANIMATED SEARCHBOX
+$color_1: #07051a;
+$color_2: white;
+
+form {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	transition: all 1s;
+	width: 50px;
+	height: 50px;
+	background: white;
+	box-sizing: border-box;
+	border-radius: 25px;
+	border: 4px solid white;
+	padding: 5px;
+	&:hover {
+		width: 100%;
+		cursor: pointer;
+		input {
+			display: block;
+		}
+		.fa {
+			background: #07051a;
+			color: $color_2;
+		}
+	}
+}
+input[type="search"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 30px;
+	line-height: 20px;
+	outline: 0;
+	border: 0;
+	display: none;
+	font-size: 1em;
+	border-radius: 20px;
+	padding: 0 20px;
+}
+.fa {
+	box-sizing: border-box;
+	padding: 10px;
+	width: 42.5px;
+	height: 42.5px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 50%;
+	color: $color_1;
+	text-align: center;
+	font-size: 1.2em;
+	transition: all 1s;
+}

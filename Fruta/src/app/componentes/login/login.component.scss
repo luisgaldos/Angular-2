@@ -2,8 +2,14 @@
 @import "../../../variables.scss";
 
 form {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
+    label {
+      color: $light_green;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
 }
 
 .btn {

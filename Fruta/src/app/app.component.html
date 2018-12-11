@@ -7,8 +7,16 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto text-center">
-            <a class="nav-item nav-link" [routerLink]="['/comparador']" routerLinkActive="active" >COMPARADOR</a>
-            <a class="nav-item nav-link" [routerLink]="['/backoffice']" routerLinkActive="active" >ZONA PRIVADA</a>
+          <li class="nav-item">
+            <span><img src="../assets/img/icon.png" alt="icono"></span>
+            <a class="nav-item nav-link" [routerLink]="['/comparador']">COMPARADOR</a>
+            <span><img src="../assets/img/icon.png" alt="icono"></span>
+          </li>
+          <li class="nav-item">
+              <a class="nav-item nav-link" [routerLink]="['/backoffice']" >ZONA PRIVADA</a>
+              <span><img src="../assets/img/icon.png" alt="icono"></span>
+          </li>
+            
         </ul>
     </div>
 </nav>
