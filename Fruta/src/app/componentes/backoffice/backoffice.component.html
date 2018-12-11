@@ -1,4 +1,8 @@
 <div class="container">
+  <div  *ngIf="mensaje" class="bg-warning alert">
+      <p class="text-white">{{ mensaje }}</p>
+      <button type="button" class="close btn btn-danger" (click)="closeAlert()">X</button>
+  </div>
   <div class="card">
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
       Editable table
@@ -7,30 +11,48 @@
       <div id="table" class="table-editable">
         <span class="table-add float-right mb-3 mr-2">
           <a class="text-success" [routerLink]="['/formulario']">
-            <mdb-icon icon="plus" size="2x"></mdb-icon>
+            <button class="btn btn-info btn-lg px-3"><i class="text-warning fa-lg fas fa-plus-square"></i></button>
           </a>
         </span>
         <table
-          class="table table-bordered table-responsive-md table-striped text-center"
-        >
-          <tr>
-            <th class="text-center">Miniatura</th>
-            <th class="text-center">Nombre</th>
-            <th class="text-center">Precio</th>
-            <th class="text-center">Calorias</th>
-            <th class="text-center">Oferta</th>
-            <th class="text-center">Descuento</th>
-            <th class="text-center">Colores</th>
-          </tr>
-          <tr *ngFor="let f of frutas; let ind = index">
-            <td><img src="{{ f.imagen }}" alt="Imagen"></td>
-            <td>{{ f.nombre }}</td>
-            <td>{{ f.precio }}</td>
-            <td>{{ f.calorias }}</td>
-            <td>{{ f.oferta }}</td>
-            <td>{{ f.descuento }}</td>
-            <td>{{ f.colores }}</td>
-          </tr>
+          class="table table-bordered table-responsive-md table-striped text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Miniatura</th>
+              <th class="text-center">Nombre</th>
+              <th class="text-center">Precio</th>
+              <th class="text-center">Calorias</th>
+              <th class="text-center">Oferta</th>
+              <th class="text-center">Descuento</th>
+              <th class="text-center">Colores</th>
+              <th class="text-center">Operaciones</th>
+            </tr>
+          </thead>
+          <tfoot>
+              <tr>
+                <th class="text-center">Miniatura</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Precio</th>
+                <th class="text-center">Calorias</th>
+                <th class="text-center">Oferta</th>
+                <th class="text-center">Descuento</th>
+                <th class="text-center">Colores</th>
+                <th class="text-center">Operaciones</th>
+              </tr>
+            </tfoot>
+          <tbody>
+            <tr *ngFor="let f of frutas; let ind = index">
+              <td><img src="{{ f.imagen }}" alt="Imagen"></td>
+              <td>{{ f.nombre | titlecase }}</td>
+              <td>{{ f.precio | currency: 'EUR' }}</td>
+              <td>{{ f.calorias }}</td>
+              <td><i class="fas fa-{{ f.oferta ? 'check text-success': 'times text-danger'  }}"></i></td>
+              <td>{{ f.descuento }}</td>
+              <td>{{ f.colores }}</td>
+              <th><a class="btn btn-success" [routerLink]="['/formulario', f.id]" title="Editar" ><i class="fas fa-edit fa-lg"></i></a>
+                  <button class="btn btn-warning ml-2" (click)="eliminarFruta(f.id)" title="Eliminar"><i class="fas fa-trash fa-lg"></i></button></th>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

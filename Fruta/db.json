@@ -1,69 +1,102 @@
 {
   "frutas": [
     {
-      "nombre": "Melocotón",
-      "precio": 1.2,
-      "calorias": 100,
+      "nombre": "uva",
+      "precio": 0.6,
+      "calorias": 2,
       "colores": [
-        "#FFFF00",
-        "#FF0000"
+        "#FF0000",
+        "#FFFF00"
       ],
       "oferta": true,
-      "descuento": 10,
-      "imagen": "https://banner2.kisspng.com/20180202/xiw/kisspng-cider-apricot-peach-flavor-fruit-apricot-png-transparent-image-5a74831ec1eeb9.5222270315175851827944.jpg",
+      "descuento": 15,
+      "imagen": "http://www.triamax.com/wp-content/uploads/2015/02/uvas.jpg",
+      "cantidad": 5,
       "id": 1
     },
     {
-      "nombre": "Mora",
-      "precio": 1.5,
-      "calorias": 150,
+      "nombre": "melocoton",
+      "precio": 45,
+      "calorias": 34,
       "colores": [
-        "#FFFF00",
-        "#FF0000"
+        "#FF0000",
+        "#FFFF00"
       ],
       "oferta": true,
-      "descuento": 5,
-      "imagen": "https://www.enterbio.es/8233-thickbox_default/mora.jpg",
+      "descuento": 10,
+      "imagen": "https://www.hogarmania.com/archivos/201305/melocotones-xl-668x400x80xX.jpg",
+      "cantidad": 5,
       "id": 2
     },
     {
-      "nombre": "Melocotón",
-      "precio": 1.2,
-      "calorias": 100,
+      "nombre": "Melon",
+      "precio": 1,
+      "calorias": 2,
       "colores": [
-        "#FFFF00",
-        "#FF0000"
+        "#FF0000",
+        "#FFFF00"
       ],
-      "oferta": true,
-      "descuento": 10,
-      "imagen": "https://banner2.kisspng.com/20180202/xiw/kisspng-cider-apricot-peach-flavor-fruit-apricot-png-transparent-image-5a74831ec1eeb9.5222270315175851827944.jpg",
+      "oferta": false,
+      "descuento": 0,
+      "imagen": "https://www.webconsultas.com/sites/default/files/styles/encabezado_articulo/public/migrated/melon.jpg",
+      "cantidad": 5,
       "id": 3
     },
     {
-      "nombre": "Melocotón",
-      "precio": 1.2,
-      "calorias": 100,
+      "nombre": "sandia",
+      "precio": 2,
+      "calorias": 2,
       "colores": [
-        "#FFFF00",
-        "#FF0000"
+        "#FF0000",
+        "#FFFF00"
       ],
-      "oferta": true,
-      "descuento": 10,
-      "imagen": "https://banner2.kisspng.com/20180202/xiw/kisspng-cider-apricot-peach-flavor-fruit-apricot-png-transparent-image-5a74831ec1eeb9.5222270315175851827944.jpg",
+      "oferta": false,
+      "descuento": 0,
+      "imagen": "https://www.comenaranjas.com/images/stories/virtuemart/product/sandia-rayada.jpg",
+      "cantidad": 5,
       "id": 4
     },
     {
-      "nombre": "Melocotón",
-      "precio": 1.2,
-      "calorias": 100,
+      "nombre": "albaricoque",
+      "precio": 3,
+      "calorias": 2,
       "colores": [
-        "#FFFF00",
-        "#FF0000"
+        "#FF0000",
+        "#FFFF00"
+      ],
+      "oferta": true,
+      "descuento": 5,
+      "imagen": "https://www.hogarmania.com/archivos/201307/albaricoque3-xl-668x400x80xX.jpg",
+      "cantidad": 5,
+      "id": 5
+    },
+    {
+      "nombre": "coco",
+      "precio": 4,
+      "calorias": 1,
+      "colores": [
+        "#FF0000",
+        "#FFFF00"
+      ],
+      "oferta": false,
+      "descuento": 0,
+      "imagen": "https://www.abc.es/media/sociedad/2016/08/05/agua-coco-propiedades2-kfwC--620x349@abc.jpg",
+      "cantidad": 5,
+      "id": 6
+    },
+    {
+      "nombre": "fresa",
+      "precio": 6,
+      "calorias": 1,
+      "colores": [
+        "#FF0000",
+        "#FFFF00"
       ],
       "oferta": true,
       "descuento": 10,
-      "imagen": "https://banner2.kisspng.com/20180202/xiw/kisspng-cider-apricot-peach-flavor-fruit-apricot-png-transparent-image-5a74831ec1eeb9.5222270315175851827944.jpg",
-      "id": 5
+      "imagen": "https://libbys.es/wordpress/wp-content/uploads/2018/05/fresas.jpg",
+      "cantidad": 5,
+      "id": 7
     }
   ]
 }

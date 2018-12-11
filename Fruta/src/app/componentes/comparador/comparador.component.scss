@@ -1,24 +1,29 @@
-$half_green: rgba(76, 175, 80, 0.5);
-$dark_green: rgba(32, 71, 33, 1);
-$white: #FFF;
-
+@import "../../../variables.scss";
 aside {
   top: 0;
-  right: 0;
+  left: 0;
+  max-width: 20%;
   position: absolute;
   height: 100%;
   background-color: $half_green;
-  float: right;
+  float: left;
   ul {
-    background-color: $dark_green;
     li {
       list-style: none;
       color: $white;
       padding: 1vh;
       width: 100%;
       margin-top: 15px;
+      button {
+        width: 100%;
+        margin: 0;
+      }
     }
+    
   }
+}
+.container {
+  float: right;
 }
 .carro {
     position: absolute;

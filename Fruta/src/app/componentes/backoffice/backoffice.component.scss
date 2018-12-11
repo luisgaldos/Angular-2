@@ -1,10 +1,21 @@
+@import "../../../variables.scss";
+
 table {
     border-collapse: collapse;
 }
 
 thead tr th, tfoot tr th {
     padding: 2vh;
-    background-color: #1d4a9cb4;
+    background-color: $table-bg;
+}
+
+tbody {
+    tr:hover {
+        background-color: $half-green;
+        td:hover {
+            background-color: $half-green;
+        }
+    }
 }
   
 table, th, td {

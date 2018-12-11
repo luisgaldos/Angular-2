@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'comparador', component: ComparadorComponent },
   { path: 'login', component: LoginComponent },
   { path: 'formulario', component: FormularioComponent },
+  { path: 'formulario/:id', component: FormularioComponent },
   { path: 'backoffice', component : BackofficeComponent, canActivate: [BackofficeGuard] },
   { path: '', redirectTo: '/comparador', pathMatch: 'full' },
   { path: '**', component: ComparadorComponent }

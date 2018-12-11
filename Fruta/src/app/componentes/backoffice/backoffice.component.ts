@@ -12,11 +12,13 @@ export class BackofficeComponent implements OnInit {
   editField: string;
   frutas: Fruta[];
   colaFrutas: Fruta[];
+  mensaje: string;
 
   constructor( private servicioFruta: FrutaService ) {
     console.trace('BackofficeComponent constructor.');
     this.frutas = [];
     this.colaFrutas = [];
+    this.mensaje = "";
    }
 
   ngOnInit() {
@@ -31,6 +33,14 @@ export class BackofficeComponent implements OnInit {
       this.frutas = [];
       this.frutas = data.map(element => element);
     });
+  }
+
+  eliminarFruta( id: number ): void {
+    if(confirm("La operación que está a punto de realizar es permanente.¿Desea continuar?")) {
+      this.servicioFruta.delete( id ).subscribe();
+      this.mensaje = "Entrada eliminada.";
+      this.listarFrutas();
+    }
   }
 
 }

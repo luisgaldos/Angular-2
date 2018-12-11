@@ -23,7 +23,11 @@ export class FrutaService {
     return this.http.get(this.ENDPOINT);
   }
 
-  add(fruta: Fruta): Observable<any> {
+  getById( id: number ): Observable<any> {
+    return this.http.get(this.ENDPOINT + "/" + id);
+  }
+
+  add( fruta: Fruta ): Observable<any> {
 
     fruta.id = null;
     let body = {
@@ -47,6 +51,24 @@ export class FrutaService {
 
     return this.http.delete(this.ENDPOINT + "/" + id);
 
+  }
+
+  update( fruta: Fruta ):  Observable<any> {
+    let body = {
+      "id": fruta.id,
+      "nombre": fruta.nombre,
+      "precio": fruta.precio,
+      "calorias": fruta.calorias,
+      "colores": fruta.colores,
+      "oferta": fruta.oferta,
+      "descuento": fruta.descuento,
+      "imagen": fruta.imagen
+    }
+
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.http.put(this.ENDPOINT + "/" + fruta.id, body, httpOptions);
   }
 }
 

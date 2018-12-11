@@ -1,5 +1,6 @@
 <div class="container">
   <p>{{ mensaje }}</p>
+  <h2 class="text-center text-success">Acceso para miembros</h2>
   <form novalidate [formGroup]="form" (ngSubmit)="submitar()">
       <div class="form-group">
         <label for="usuario">Usuario</label>
@@ -10,7 +11,7 @@
         <input type="password" class="form-control" id="pwd" formControlName="password">
       </div>
 
-      <button type="submit" class="btn btn-dark btn-block p-2">LOGIN</button>
+      <button type="submit" class="btn btn-block p-2">LOGIN</button>
   </form>
 </div>
   

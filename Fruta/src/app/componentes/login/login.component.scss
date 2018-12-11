@@ -1,0 +1,14 @@
+
+@import "../../../variables.scss";
+
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.btn {
+    background-color: $orange;
+    color: $light_green;
+    font-size: 1.4em;
+    font-weight: bold;
+}

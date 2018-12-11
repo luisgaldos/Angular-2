@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Fruta } from '../../model/fruta';
 import { FrutaService } from '../../providers/fruta.service';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-comparador',
@@ -10,9 +11,12 @@ import { FrutaService } from '../../providers/fruta.service';
 export class ComparadorComponent implements OnInit {
 
   frutas: Fruta[];
+  filtro: boolean;
+  frutasBusqueda: Fruta[];
   carro: Fruta[];
   fruta1: Fruta;
   fruta2: Fruta;
+  txtBusqueda: string;
 
   difPrecio: number;
   difCalorias: number;
@@ -26,6 +30,9 @@ export class ComparadorComponent implements OnInit {
     this.precioTotal = 0;
     this.fruta1 = new Fruta();
     this.fruta2 = new Fruta();
+    this.txtBusqueda = "";
+    this.frutasBusqueda = [];
+    this.filtro = undefined;
   }
 
   ngOnInit() {
@@ -121,5 +128,21 @@ export class ComparadorComponent implements OnInit {
     this.calcularPrecioTotal();
   }
 
+  buscar(): void {
+    this.frutasBusqueda = [];
+    if (this.txtBusqueda == "") {
+      this.listarFrutas();
+    } else {
+      this.frutas.forEach(e => {
+        if (e.nombre.toLowerCase().includes( this.txtBusqueda.toLowerCase() )) {
+          this.frutasBusqueda.push(e);
+        }
+      });
+      this.frutas = this.frutasBusqueda;
+
+    }
+    
+    console.log(this.frutasBusqueda.length);
+  }
 
 }

@@ -1,5 +1,5 @@
 <div class="container">
-  <div  *ngIf="mensaje" class="bg-info alert">
+  <div  *ngIf="mensaje" class="bg-success alert">
       <p class="text-white">{{ mensaje }}</p>
       <button type="button" class="close btn btn-danger" (click)="closeAlert()">X</button>
   </div>
@@ -9,7 +9,7 @@
     <form [formGroup]="formulario" (ngSubmit)="submitar()" novalidate>
       <!--NOMBRE-->
       <div class="row">
-        <button class="btn btn-info btn-block px-5 ml-auto" type="button" (click)="cargarFormulario()">
+        <button class="btn btn-info btn-block px-5 ml-auto" type="button" (click)="cargarValoresFormulario()">
               Rellenar Formulario
         </button>
       </div>
@@ -90,7 +90,7 @@
         <!--BTN AÑADIR COLOR-->
         <button type='button' class="btn btn-primary" (click)="nuevoColor()">+ Color</button>
         <div formArrayName="colores" class="form-row mt-2">
-          <div *ngFor="let color of frutaColores.controls; let i = index" class="form-row" class="ml-2">
+          <div *ngFor="let c of formulario.get('colores').controls; let i = index" class="form-row" class="ml-2">
             <div [formGroupName]="i" class="col">
               <input type="color" formControlName="color">
               <button (click)="eliminarColor(i)" type="button" class="ml-2"><i class="fas fa-minus-circle text-danger"></i></button>
