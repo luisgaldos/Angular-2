@@ -97,6 +97,170 @@
       "imagen": "https://libbys.es/wordpress/wp-content/uploads/2018/05/fresas.jpg",
       "cantidad": 5,
       "id": 7
+    },
+    {
+      "nombre": "Piña",
+      "precio": 2.8,
+      "calorias": 120,
+      "colores": [
+        "#ffff00"
+      ],
+      "oferta": true,
+      "descuento": 12,
+      "imagen": "https://d50xhnwqnrbqk.cloudfront.net/images/products/large/pina.png",
+      "id": 8
+    },
+    {
+      "nombre": "Granada",
+      "precio": 2.5,
+      "calorias": 150,
+      "colores": [
+        "#ff0000"
+      ],
+      "oferta": false,
+      "descuento": null,
+      "imagen": "https://frutascharito.es/610-large_default/granadas-para-zumo-unidad.jpg",
+      "id": 9
+    },
+    {
+      "nombre": "Manzana",
+      "precio": 1.15,
+      "calorias": 80,
+      "colores": [
+        "#00ff00",
+        "#ff0000"
+      ],
+      "oferta": false,
+      "descuento": "",
+      "imagen": "http://www.stickpng.com/assets/thumbs/580b57fbd9996e24bc43c112.png",
+      "id": 10
+    },
+    {
+      "nombre": "Naranja",
+      "precio": 1.56,
+      "calorias": 135,
+      "colores": [
+        "#ff8000"
+      ],
+      "oferta": true,
+      "descuento": 5,
+      "imagen": "https://png.pngtree.com/element_pic/17/09/11/4e0767b85d873d3636e379bdeeda3d45.jpg",
+      "id": 11
+    },
+    {
+      "nombre": "Kiri",
+      "precio": 0.8,
+      "calorias": 60,
+      "colores": [
+        "#ffff00",
+        "#00ff00"
+      ],
+      "oferta": true,
+      "descuento": 5,
+      "imagen": "https://www.comenaranjas.com/images/stories/virtuemart/product/kiwi-jumbo.jpg",
+      "id": 12
+    },
+    {
+      "nombre": "Pera",
+      "precio": 3.99,
+      "calorias": 140,
+      "colores": [
+        "#80ff00",
+        "#ffff00"
+      ],
+      "oferta": false,
+      "descuento": "",
+      "imagen": "http://www.stickpng.com/assets/thumbs/580b57fcd9996e24bc43c17d.png",
+      "id": 13
+    },
+    {
+      "nombre": "Plátano",
+      "precio": 3.56,
+      "calorias": 100,
+      "colores": [
+        "#ffff00",
+        "#00ff00"
+      ],
+      "oferta": false,
+      "descuento": "",
+      "imagen": "http://www.frutosdelcielo.cl/wp-content/uploads/2017/11/platanos.png",
+      "id": 14
+    },
+    {
+      "nombre": "Arándanos",
+      "precio": 4.67,
+      "calorias": 60,
+      "colores": [
+        "#004080",
+        "#ff0000"
+      ],
+      "oferta": true,
+      "descuento": 15,
+      "imagen": "https://png.pngtree.com/element_pic/16/11/08/1fb50b548e4b6da2619401735bb2444d.jpg",
+      "id": 15
+    },
+    {
+      "nombre": "Frambuesas",
+      "precio": 3.6,
+      "calorias": 60,
+      "colores": [
+        "#000040",
+        "#ff0000"
+      ],
+      "oferta": false,
+      "descuento": null,
+      "imagen": "https://png.pngtree.com/element_pic/16/11/19/96a6e5c283951a47cbd6aca097969f11.jpg",
+      "id": 16
+    },
+    {
+      "nombre": "Limón",
+      "precio": 1.55,
+      "calorias": 60,
+      "colores": [
+        "#ffff00"
+      ],
+      "oferta": true,
+      "descuento": 5,
+      "imagen": "https://madeincandela.com/princess/wp-content/uploads/2017/06/Lim%C3%B3n-en-PNG-370.png",
+      "id": 17
+    },
+    {
+      "nombre": "Lima",
+      "precio": 3,
+      "calorias": 55,
+      "colores": [
+        "#80ff00"
+      ],
+      "oferta": false,
+      "descuento": null,
+      "imagen": "http://www.frutasiru.com/uploads/catalogo/productos/thumb/lima.png",
+      "id": 18
+    },
+    {
+      "nombre": "Fruta del dragón",
+      "precio": 7,
+      "calorias": 145,
+      "colores": [
+        "#800040"
+      ],
+      "oferta": true,
+      "descuento": 10,
+      "imagen": "http://www.stickpng.com/assets/images/5a5f62a2ee40df432bfac559.png",
+      "id": 19
+    },
+    {
+      "nombre": "Mango",
+      "precio": 4.6,
+      "calorias": 200,
+      "colores": [
+        "#80ff00",
+        "#ffff00",
+        "#ff0000"
+      ],
+      "oferta": true,
+      "descuento": 25,
+      "imagen": "https://png.pngtree.com/element_origin_min_pic/00/16/04/2857220c2c040b7.jpg",
+      "id": 20
     }
   ]
 }

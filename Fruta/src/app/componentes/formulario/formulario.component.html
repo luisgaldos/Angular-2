@@ -5,102 +5,107 @@
   </div>
 
   <div class="row">
-    
-    <form [formGroup]="formulario" (ngSubmit)="submitar()" novalidate>
-      <!--NOMBRE-->
-      <div class="row">
-        <button class="btn btn-info btn-block px-5 ml-auto" type="button" (click)="cargarValoresFormulario()">
-              Rellenar Formulario
-        </button>
-      </div>
-      <div class="form-group">
-        <label for="nombre" class="requerido">Nombre</label>
-        <input type="text" id="nombre" formControlName="nombre" class="form-control" placeholder="De 2 a 45 caracteres." />
-        
-        <div *ngIf="nombre.errors" class="text-danger">
-            <small *ngIf="nombre?.errors['required']">El campo es requerido.</small>
-            <small *ngIf="nombre?.errors['minlength']">Debe contener al menos 2 caracteres.</small>
-            <small *ngIf="nombre?.errors['maxlength']">Debe contener como máximo 45 caracteres.</small>
-        </div>  
-      </div>
+    <div class="col-lg-6 col-md-12">
 
-      <div class="form-row">
-        <!--KCAL-->
-        <div class="form-group col-md-6">
-          <label for="kcal" class="requerido">Calorías</label>
-          <input type="number" id="kcal" formControlName="calorias" placeholder="No admite decimales." class="form-control" />
+      <form [formGroup]="formulario" (ngSubmit)="submitar()" novalidate>
+        <!--NOMBRE-->
+        <div class="row">
+          <button class="btn btn-warning btn-block px-5 ml-auto" type="button" (click)="cargarValoresFormulario()">
+                Rellenar Formulario
+          </button>
+        </div>
+        <div class="form-group">
+          <label for="nombre" class="requerido">Nombre</label>
+          <input type="text" id="nombre" formControlName="nombre" class="form-control" placeholder="De 2 a 45 caracteres." />
           
-          <div *ngIf="calorias.errors" class="text-danger">
-              <small *ngIf="calorias?.errors['required']">El campo es requerido.</small>
-              <small *ngIf="calorias?.errors['min']">El valor debe ser superior a 5.</small>
-              <small *ngIf="calorias?.errors['max']">El valor debe ser inferior a 999.</small>
-          </div> 
+          <div *ngIf="nombre.errors" class="text-danger">
+              <small *ngIf="nombre?.errors['required']">El campo es requerido.</small>
+              <small *ngIf="nombre?.errors['minlength']">Debe contener al menos 2 caracteres.</small>
+              <small *ngIf="nombre?.errors['maxlength']">Debe contener como máximo 45 caracteres.</small>
+          </div>  
         </div>
-        <!--PRECIO-->
-        <div class="form-group col-md-6">
-          <label for="precio" class="requerido">Precio (€)</label>
-          <input type="number" id="precio" formControlName="precio" min="0" step="0.01" placeholder="Ej: 1,20" class="form-control" />
-          
-          <div *ngIf="precio.errors" class="text-danger">
-              <small *ngIf="precio?.errors['required']">El campo es requerido.</small>
-              <small *ngIf="precio?.errors['min']">El valor debe ser superior a 0,5.</small>
-              <small *ngIf="precio?.errors['max']">El valor debe ser inferior a 999.</small>
+
+        <div class="form-row">
+          <!--KCAL-->
+          <div class="form-group col-md-6">
+            <label for="kcal" class="requerido">Calorías</label>
+            <input type="number" id="kcal" formControlName="calorias" placeholder="No admite decimales." class="form-control" />
+            
+            <div *ngIf="calorias.errors" class="text-danger">
+                <small *ngIf="calorias?.errors['required']">El campo es requerido.</small>
+                <small *ngIf="calorias?.errors['min']">El valor debe ser superior a 5.</small>
+                <small *ngIf="calorias?.errors['max']">El valor debe ser inferior a 999.</small>
+            </div> 
           </div>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <!--OFERTA?-->
-        <div class="form-group col-md-6 my-auto">
-          <div class="checkbox-inline text-center">
-            <input type="checkbox" id="oferta" formControlName="oferta" />
-            <label for="oferta" class="checkbox-inline ml-3">Oferta</label>
-          </div>
-        </div>
-        <!--DESCUENTO-->
-        <div class="form-group col-md-6">
-          <label for="descuento">Descuento (%)</label>
-          <input type="number" id="descuento" formControlName="descuento" min="0" max="100" step="5" class="form-control"
-            placeholder="Ej: 10" />
-            <div *ngIf="descuento.errors" class="text-danger">
-                <small *ngIf="descuento?.errors['min']">El valor debe ser superior a 1.</small>
-                <small *ngIf="descuento?.errors['max']">El valor debe ser inferior a 90.</small>
-            </div>
-        </div>
-      </div>
-
-      <!-- IMAGEN -->
-      <div class="form-group">
-        <label for="imagen">Imagen</label>
-        <input type="text" id="imagen" formControlName="imagen" class="form-control" placeholder="De 2 a 150 caracteres." />
-        
-        <div *ngIf="imagen.errors" class="text-danger">
-            <small *ngIf="imagen?.errors['minlength']">Debe contener al menos 10 caracteres.</small>
-            <small *ngIf="imagen?.errors['maxlength']">Debe contener como máximo 250 caracteres.</small>
-        </div>
-      </div>
-
-      <!-- VISTA PREVIA IMG -->
-      <div class="row" [hidden]="imagen.value?.length <= 0">
-          <img class="mt-2 mx-auto"src="{{ imagen.value }}" width="350" height="200" alt="Imagen">
-      </div>
-
-      <!--COLORES-->
-      <div class="form-row">
-        <!--BTN AÑADIR COLOR-->
-        <button type='button' class="btn btn-primary" (click)="nuevoColor()">+ Color</button>
-        <div formArrayName="colores" class="form-row mt-2">
-          <div *ngFor="let c of formulario.get('colores').controls; let i = index" class="form-row" class="ml-2">
-            <div [formGroupName]="i" class="col">
-              <input type="color" formControlName="color">
-              <button (click)="eliminarColor(i)" type="button" class="ml-2"><i class="fas fa-minus-circle text-danger"></i></button>
+          <!--PRECIO-->
+          <div class="form-group col-md-6">
+            <label for="precio" class="requerido">Precio (€)</label>
+            <input type="number" id="precio" formControlName="precio" min="0" step="0.01" placeholder="Ej: 1,20" class="form-control" />
+            
+            <div *ngIf="precio.errors" class="text-danger">
+                <small *ngIf="precio?.errors['required']">El campo es requerido.</small>
+                <small *ngIf="precio?.errors['min']">El valor debe ser superior a 0,5.</small>
+                <small *ngIf="precio?.errors['max']">El valor debe ser inferior a 999.</small>
             </div>
           </div>
         </div>
-      </div>
 
-      <input type="submit" class="btn btn-block btn-success mt-2" value="Crear" [disabled]="formulario.invalid" />
-    </form>
+        <div class="form-row">
+          <!--OFERTA?-->
+          <div class="form-group col-md-6 my-auto">
+            <div class="checkbox-inline text-center">
+              <input type="checkbox" id="oferta" formControlName="oferta" />
+              <label for="oferta" class="checkbox-inline ml-3">Oferta</label>
+            </div>
+          </div>
+          <!--DESCUENTO-->
+          <div class="form-group col-md-6">
+            <label for="descuento">Descuento (%)</label>
+            <input type="number" id="descuento" formControlName="descuento" min="0" max="100" step="5" class="form-control"
+              placeholder="Ej: 10" />
+              <div *ngIf="descuento.errors" class="text-danger">
+                  <small *ngIf="descuento?.errors['min']">El valor debe ser superior a 1.</small>
+                  <small *ngIf="descuento?.errors['max']">El valor debe ser inferior a 90.</small>
+              </div>
+          </div>
+        </div>
+
+        <!-- IMAGEN -->
+        <div class="form-group">
+          <label for="imagen">Imagen</label>
+          <input type="text" id="imagen" formControlName="imagen" class="form-control" placeholder="De 2 a 150 caracteres." />
+          
+          <div *ngIf="imagen.errors" class="text-danger">
+              <small *ngIf="imagen?.errors['minlength']">Debe contener al menos 10 caracteres.</small>
+              <small *ngIf="imagen?.errors['maxlength']">Debe contener como máximo 250 caracteres.</small>
+          </div>
+        </div>
+
+        <!-- VISTA PREVIA IMG -->
+        <div class="row" [hidden]="imagen.value?.length <= 0">
+            <img class="mt-2 mx-auto"src="{{ imagen.value }}" width="350" height="200" alt="Imagen">
+        </div>
+
+        <!--COLORES-->
+        <div class="form-row">
+          <!--BTN AÑADIR COLOR-->
+          <button type='button' class="btn btn-primary" (click)="nuevoColor()">+ Color</button>
+          <div formArrayName="colores" class="form-row mt-2">
+            <div *ngFor="let c of formulario.get('colores').controls; let i = index" class="form-row" class="ml-2">
+              <div [formGroupName]="i" class="col">
+                <input type="color" formControlName="color">
+                <button (click)="eliminarColor(i)" type="button" class="ml-2"><i class="fas fa-minus-circle text-danger"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <input type="submit" class="btn btn-block btn-success mt-2" value="Crear" [disabled]="formulario.invalid" />
+      </form>
+    </div>
+
+    <div class="col-lg-4 col-md-12">
+        <app-fruta-card class="mx-auto" [_fruta]="frutaDemo"></app-fruta-card>
+    </div>
   </div>
-
 </div>

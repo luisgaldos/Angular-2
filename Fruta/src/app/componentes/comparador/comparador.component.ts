@@ -154,6 +154,19 @@ export class ComparadorComponent implements OnInit {
     console.log(this.frutasBusqueda.length);
   }
 
+  ordenarFrutas() {
+    this.frutas.sort((a, b) => {
+      if (a.nombre > b.nombre) {
+        return 1;
+      }
+      if (a.nombre < b.nombre) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+  }
+
   seleccionarFrutas(): void {
     let coincidencias;
     if (this.filtro == true || this.filtro == false) {

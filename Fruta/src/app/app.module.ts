@@ -15,6 +15,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { FormularioComponent } from './componentes/formulario/formulario.component';
 import { FrutasOfertaPipe } from './pipes/frutas-oferta.pipe';
 import { HomeComponent } from './componentes/home/home.component';
+import { DestacarDirective } from './directives/destacar.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomeComponent } from './componentes/home/home.component';
     LoginComponent,
     FormularioComponent,
     FrutasOfertaPipe,
-    HomeComponent
+    HomeComponent,
+    DestacarDirective
   ],
   imports: [
     BrowserModule,

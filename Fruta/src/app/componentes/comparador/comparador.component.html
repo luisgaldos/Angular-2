@@ -2,34 +2,37 @@
 <main class="container-fluid">
   <div class="row">
     <!--LISTADO FRUTAS-->
-    <aside class="col-lg-2 col-md-12">
-        <ul class="my-auto">
-          <li *ngFor="let f of frutas | frutasOferta: filtro">
-            <button (click)="seleccionar(f)" [class.activo]="f == fruta1 || f == fruta2" class="btn btn-success">{{ f.nombre | titlecase }}</button>
-          </li>
-        </ul>
+    <aside class="col-lg-3 col-md-12">
+      <div class="row">
+        <ul class="m-0">
+          <li *ngFor="let f of frutas | frutasOferta: filtro" class="col-md-6 mx-auto">
+              <button (click)="seleccionar(f)" [class.activo]="f == fruta1 || f == fruta2" class="btn btn-success">{{ f.nombre | titlecase }}</button>
+            </li>
+          </ul>
+      </div>
+           
     </aside>
     <div class="col-lg-8 col-md-12">
 
-      <div class="row">
-          <div class="col-lg-6 col-md-12">
+      <div class="row bg-orange py-3">
+          <div class="col-lg-4 col-md-12">
             <!--RADIO BUTTONS-->
-            <label class="radio-inline ml-2">
+            <label class="radio-inline ml-1">
               <input type="radio" name="filter" [(ngModel)]="filtro"  [value]="undefined" (ngModelChange)="seleccionarFrutas()">Todas
             </label>
-            <label class="radio-inline ml-2">
+            <label class="radio-inline ml-1">
               <input type="radio" name="filter" [(ngModel)]="filtro"  [value]="true" (ngModelChange)="seleccionarFrutas()">En Oferta
             </label>
-            <label class="radio-inline ml-2">
+            <label class="radio-inline ml-1">
               <input type="radio" name="filter" [(ngModel)]="filtro"  [value]="false" (ngModelChange)="seleccionarFrutas()">Sin Oferta
             </label>
         </div>
+        <div class="col-lg-2 col-md-12 my-auto">
+          <button type="button" class="btn btn-block btn-warning" (click)="ordenarFrutas()"><i class="fas fa-sort-alpha-down fa-lg"></i></button>
+        </div>
         <!--SEARCH-->
-        <div class="col-lg-6 col-md-12 bg-dark">
-            <form>
-                <input type="search" [(ngModel)]="txtBusqueda" [ngModelOptions]="{standalone: true}" (keyup)="buscar()" placeholder="Busca por nombre...">
-                <i class="fa fa-search"></i>
-            </form>
+        <div class="col-lg-6 col-md-12 my-auto">
+            <input type="search" class="float-right" [(ngModel)]="txtBusqueda" (keyup)="buscar()" placeholder="Busca por nombre...">
         </div>
       </div>
       <!--CARDS FRUTA-->
@@ -47,7 +50,7 @@
 <div class="row">
   
   <!--CARRO-->
-  <div class="col-lg-4 col-md-12">
+  <div class="col-lg-3 col-md-12">
       <div *ngIf="carro" class="carro">
           <ul>
               <li *ngFor="let c of carro" class="list-group-item">

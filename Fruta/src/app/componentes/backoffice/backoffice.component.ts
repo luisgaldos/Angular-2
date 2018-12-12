@@ -15,12 +15,18 @@ export class BackofficeComponent implements OnInit {
   frutas: Fruta[];
   colaFrutas: Fruta[];
   mensaje: string;
+  filtro: boolean;
+  txtBusqueda: string;
+  frutasBusqueda: Fruta[];
 
-  constructor( private servicioFruta: FrutaService, private servicioLogin: LoginService, private router: Router ) {
+  constructor( private servicioFruta: FrutaService, private servicioLogin: LoginService) {
     console.trace('BackofficeComponent constructor.');
     this.frutas = [];
     this.colaFrutas = [];
     this.mensaje = "";
+    this.txtBusqueda = "";
+    this.frutasBusqueda = [];
+    this.filtro = undefined;
    }
 
   ngOnInit() {
@@ -49,9 +55,34 @@ export class BackofficeComponent implements OnInit {
     this.mensaje = "";
   }
 
-  cerrarSesion(): void {
-    this.servicioLogin.logOut();
-    this.router.navigate(['/comparador']);
+  buscar(): void {
+    this.frutasBusqueda = [];
+    if (this.txtBusqueda == "") {
+      this.listarFrutas();
+    } else {
+      this.frutas.forEach(e => {
+        if (e.nombre.toLowerCase().includes( this.txtBusqueda.toLowerCase() )) {
+          this.frutasBusqueda.push(e);
+        }
+      });
+      this.frutas = this.frutasBusqueda;
+
+    }
+    
+    console.log(this.frutasBusqueda.length);
+  }
+
+  ordenarFrutas() {
+    this.frutas.sort((a, b) => {
+      if (a.nombre > b.nombre) {
+        return 1;
+      }
+      if (a.nombre < b.nombre) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
   }
 
 }

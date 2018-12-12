@@ -1,6 +1,18 @@
+@import "../../../variables.scss";
+
 form {
-    background-color: #CCC;
-    padding: 5vh;
+    background-color: $dark-green;
+    padding:5vh;
     margin: 0 auto;
+    label {
+        color: $orange;
+    }
+    input[type=text], input[type=number] {
+        color: $light-green;
+        font-weight: bold;
+    }
+    input[type=submit] {
+        background-color: $orange;
+    }
 }
 

@@ -17,6 +17,7 @@ export class FormularioComponent implements OnInit {
   ok: boolean;
   colores: FormArray;
   mensaje = "";
+  frutaDemo: Fruta;
 
   @Output() submit = new EventEmitter();
   
@@ -52,7 +53,7 @@ export class FormularioComponent implements OnInit {
     this.formulario = new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(45)]),
       precio: new FormControl('', [Validators.required, Validators.min(0.5), Validators.max(999)]),
-      calorias: new FormControl('', [Validators.required, Validators.min(5), Validators.max(999)]),
+      calorias: new FormControl('', [Validators.required, Validators.min(1), Validators.max(999)]),
       colores: new FormArray([], Validators.minLength(1)),
       oferta: new FormControl(false),
       descuento: new FormControl('', [Validators.min(1), Validators.max(90)]),
@@ -87,6 +88,8 @@ export class FormularioComponent implements OnInit {
         this.frutaColores.push(this.crearColorFruta(e));
       });
     }
+
+    this.frutaDemo = f;
     
   }
 

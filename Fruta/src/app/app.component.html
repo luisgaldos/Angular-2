@@ -9,14 +9,17 @@
         <ul class="navbar-nav mx-auto text-center">
           <li class="nav-item">
             <span><img src="../assets/img/icon.png" alt="icono"></span>
-            <a class="nav-item nav-link" [routerLink]="['/comparador']">COMPARADOR</a>
+            <a class="nav-item nav-link" [routerLink]="['/comparador']">Comparador</a>
             <span><img src="../assets/img/icon.png" alt="icono"></span>
           </li>
           <li class="nav-item">
-              <a class="nav-item nav-link" [routerLink]="['/backoffice']" >ZONA PRIVADA</a>
+              <a class="nav-item nav-link" [routerLink]="['/backoffice']" >Zona Privada</a>
               <span><img src="../assets/img/icon.png" alt="icono"></span>
           </li>
-            
+          <li *ngIf="isLogged()" class="nav-item">
+            <a class="nav-item nav-link" [routerLink]="['']" (click)="cerrarSesion()" >Salir</a>
+            <span><img src="../assets/img/icon.png" alt="icono"></span>
+          </li>
         </ul>
     </div>
 </nav>
