@@ -21,7 +21,8 @@ Para iniciarlo:
 Para iniciar el servidor de angular que nos permite ejecutar sus aplicaciones nos valdremos del comando:
 - **ng serve -o**
 
-###NOTAS
+###IMAGENES
+![Imagen del Comparador](/frutas.png)
 
 
 
