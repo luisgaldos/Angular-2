@@ -69,7 +69,7 @@
               <td>{{ f.calorias }}</td>
               <td><i class="fas fa-{{ f.oferta ? 'check text-success': 'times text-danger'  }}"></i></td>
               <td>{{ f.descuento? f.descuento: '0' }}</td>
-              <td>{{ f.colores }}</td>
+              <td><input type="color" *ngFor="let c of f.colores" value="{{c}}" disabled/></td>
               <th><a class="btn btn-success" [routerLink]="['/formulario', f.id]" title="Editar" ><i class="fas fa-edit fa-lg"></i></a>
                   <button class="btn btn-warning ml-2" (click)="eliminarFruta(f.id)" title="Eliminar"><i class="fas fa-trash fa-lg"></i></button></th>
             </tr>
