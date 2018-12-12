@@ -22,7 +22,7 @@ Para iniciar el servidor de angular que nos permite ejecutar sus aplicaciones no
 - **ng serve -o**
 
 ###IMAGENES
-![Imagen del Comparador](/frutas.png)
+![Imagen del Comparador](frutas.png)
 
 
 
