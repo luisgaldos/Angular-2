@@ -1,24 +1,30 @@
 
 <section class="container">
   <div class="relativo">
-  <div *ngIf="fruta.oferta" class="discount">{{ fruta.descuento }}%</div>
-  <img src="{{ fruta.imagen }}" alt="Imagen" class="image" />
-  <div class="middle">
-      <div class="text">
-        <p>{{ fruta.nombre | uppercase }}</p>
-        <p class="calorias">{{ fruta.calorias }} Kcal</p>
-        <p>
-          <del *ngIf="fruta.oferta">{{ fruta.precio | currency: "EUR" }}</del>
-          {{ fruta.precio - fruta.precio * (fruta.descuento / 100) | currency: "EUR" }}
-        </p>
-        <button (click)="comprar()" class="btn btn-sm btn-warning">Comprar</button>
+    <div *ngIf="fruta.oferta" class="discount">{{ fruta.descuento }}%</div>
+    <img src="{{ fruta.imagen }}" alt="Imagen" class="image" />
+    <div class="middle">
+        <div class="text">
+          <p>{{ fruta.nombre | uppercase }}</p>
+          <p class="calorias">{{ fruta.calorias }} Kcal</p>
+          <p>
+            <del *ngIf="fruta.oferta">{{ fruta.precio | currency: "EUR" }}</del>
+            {{ fruta.precio - fruta.precio * (fruta.descuento / 100) | currency: "EUR" }}
+          </p>
+          <button (click)="comprar()" class="btn btn-sm btn-warning">Comprar</button>
+        </div>
       </div>
-    </div>
-  </div>
+    </div><!--/.middle-->
 
-  <!-- comparador -->
-  <div *ngIf="_fruta2" class="comparador">
-      <p>Precio <span class="{{(_fruta.precio - _fruta2.precio > 0) ? 'text-success' : 'text-danger'}}">{{ _fruta.precio - _fruta2.precio | number:'1.2-2' | currency: 'EUR'}}</span></p>
-      <p>Calorias <span class="{{(_fruta.precio - _fruta2.precio > 0) ? 'text-danger' : 'text-success'}}">{{ _fruta.calorias - _fruta2.calorias | number:'1.2-2'}}</span> Kcal</p>
-    </div>
+    <!-- comparador -->
+    <div *ngIf="_fruta2" class="comparador">
+      <div class="row">  
+        <div class="col-6">
+          <span class="text-comparador {{(_fruta.precio - _fruta2.precio > 0) ? 'text-danger' : 'text-success'}}">{{ _fruta.precio - _fruta2.precio | number:'1.2-2' | currency: 'EUR'}}</span>
+        </div>
+        <div class="col-6">
+            <span class="text-comparador {{(_fruta.precio - _fruta2.precio > 0) ? 'text-danger' : 'text-success'}}">{{ _fruta.calorias - _fruta2.calorias | number:'1.2-2'}}Kcal</span> 
+        </div>
+      </div>
+  </div>
 </section>

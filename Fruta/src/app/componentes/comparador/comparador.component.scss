@@ -28,11 +28,16 @@ aside {
 }
 .carro {
     padding-top: 2vh;
+    max-height: 100vh;
     position: fixed;
     bottom: 0;
     right: 0;
     z-index: 99;
     background-color: $orange;
+    ul {
+      max-height: 90vh;
+      overflow: auto;
+    }
 }
   
 .miniatura {
