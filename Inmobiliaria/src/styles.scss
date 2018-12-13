@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #3E2644;
+    .alert {
+        position: relative;
+    }
+    label {
+        color: #FFF;
+    }
+      
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    nav {
+        background-color: #F2F1F2;
+        width: 100%;
+        margin-bottom: 5vh;
+    }
+}

@@ -1,0 +1,111 @@
+<div class="container">
+  <div  *ngIf="mensaje" class="bg-success alert">
+      <p class="text-white">{{ mensaje }}</p>
+      <button type="button" class="close btn btn-danger" (click)="closeAlert()">X</button>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="formulario" (ngSubmit)="submitar()" novalidate class="mx-auto">
+        <!--NOMBRE--> 
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" formControlName="nombre" class="form-control" placeholder="De 2 a 45 caracteres." />
+          
+          <div *ngIf="nombre.errors" class="text-danger">
+              <small *ngIf="nombre?.errors['required']">El campo es requerido.</small>
+              <small *ngIf="nombre?.errors['minlength']">Debe contener al menos 2 caracteres.</small>
+              <small *ngIf="nombre?.errors['maxlength']">Debe contener como máximo 45 caracteres.</small>
+          </div>  
+        </div>
+        <!--DIRECCION-->
+        <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="nombre" formControlName="direccion" class="form-control" placeholder="De 2 a 45 caracteres." />
+            
+            <div *ngIf="direccion.errors" class="text-danger">
+                <small *ngIf="direccion?.errors['required']">El campo es requerido.</small>
+                <small *ngIf="direccion?.errors['minlength']">Debe contener al menos 5 caracteres.</small>
+                <small *ngIf="direccion?.errors['maxlength']">Debe contener como máximo 45 caracteres.</small>
+            </div>  
+          </div>
+
+        <div class="form-row">
+          <!--PRECIO-->
+          <div class="form-group col-md-4">
+            <label for="precio" class="requerido">Precio (€)</label>
+            <input type="number" id="precio" formControlName="precio" min="0" step="0.01" placeholder="Ej: 1,20" class="form-control" />
+            
+            <div *ngIf="precio.errors" class="text-danger">
+                <small *ngIf="precio?.errors['required']">El campo es requerido.</small>
+                <small *ngIf="precio?.errors['min']">El valor debe ser superior a 50.</small>
+            </div>
+          </div>
+
+          <!--ALQUILER?-->
+          <div class="form-group col-md-4 my-auto">
+            <div class="checkbox-inline text-center">
+              <input type="checkbox" id="alquiler" formControlName="alquiler" />
+              <label for="alquiler" class="checkbox-inline ml-3">Alquiler</label>
+            </div>
+          </div>
+          <!--Nº HABITACIONES-->
+          <div class="form-group col-md-4">
+              <label for="habitaciones" class="requerido">Nº Habitaciones</label>
+              <input type="number" id="habitaciones" formControlName="habitaciones" min="0" step="1" class="form-control" />
+              
+              <div *ngIf="habitaciones.errors" class="text-danger">
+                  <small *ngIf="habitaciones?.errors['required']">El campo es requerido.</small>
+                  <small *ngIf="habitaciones?.errors['min']">El valor debe ser superior a 0,5.</small>
+                  <small *ngIf="habitaciones?.errors['max']">El valor debe ser inferior a 999.</small>
+              </div>
+            </div>
+        </div>
+
+        <!-- IMAGEN -->
+        <div class="form-group">
+          <label for="foto">Foto</label>
+          <input type="text" id="foto" formControlName="foto" class="form-control" placeholder="De 2 a 150 caracteres." />
+          
+          <div *ngIf="foto.errors" class="text-danger">
+              <small *ngIf="foto?.errors['minlength']">Debe contener al menos 10 caracteres.</small>
+              <small *ngIf="foto?.errors['maxlength']">Debe contener como máximo 250 caracteres.</small>
+              <small *ngIf="foto?.errors['pattern']">Debe terminar en .JPEG, .JPG o .PNG.</small>
+          </div>
+        </div>
+
+        <!--SERVICIOS-->
+        <div class="form-row">
+          <!--BTN AÑADIR SERVICIO-->
+          <button type='button' class="btn btn-primary" (click)="addServicio()">+ Servicio</button>
+          <div formArrayName="servicios" class="form-row mt-2">
+            <div *ngFor="let s of formulario.get('servicios').controls; let i = index" class="form-row" class="ml-2">
+              <div [formGroupName]="i" class="col">
+                <label for="nombreServicio">Servicio: </label>
+                <input type="text" id="nombreServicio" formControlName="nombre">
+                <input type="checkbox" id="disponible" formControlName="disponible" class="ml-2">
+                <label for="disponible">Disponible</label>
+                <button (click)="deleteServicio(i)" type="button" class="ml-2"><i class="fas fa-minus-circle text-danger"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <input type="submit" class="btn btn-block btn-success mt-2" value="Crear Inmueble" [disabled]="formulario.invalid" />
+      </form>
+    </div>
+
+    
+    <div class="col">
+      <!-- VISTA PREVIA IMG -->
+      <div class="row">
+          <button class="btn btn-info px-2 ml-auto" type="button" (click)="cargarValoresFormulario()">
+              Rellenar Formulario
+          </button>
+      </div>
+      <div class="row">
+          <img [hidden]="foto.value?.length <= 0" class="mt-2 img-fluid"src="{{ foto.value }}" alt="Imagen">
+      </div>   
+    </div>
+  </div>
+</div>

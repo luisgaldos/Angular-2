@@ -1,0 +1,11 @@
+.nav-link, a {
+    color: #00F;
+    margin-left: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: inline-block;
+    &:hover {
+      color: #00008B;
+    }
+  }

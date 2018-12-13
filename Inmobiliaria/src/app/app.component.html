@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand">
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item">
+          <a class="nav-item nav-link" [routerLink]="['/home']">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a *ngIf="!isLogged" class="nav-item nav-link" [routerLink]="['/login']">Acesso</a>
+            <a *ngIf="isLogged" class="nav-item nav-link" [routerLink]="['/backoffice']">Backoffice</a>
+        </li>
+        <li *ngIf="isLogged()" class="nav-item">
+            <a class="nav-item nav-link" [routerLink]="['']" (click)="cerrarSesion()">Salir</a>
+        </li>
+      </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,33 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col">
+             <!--PRICE FILTER-->
+             <input type="number" [(ngModel)]="precioMin" placeholder="Precio mínimo" class="mx-2">
+             <input type="number" [(ngModel)]="precioMax"placeholder="Precio máximo">
+            <!--RADIO BUTTONS-->
+            <label class="radio-inline ml-5">
+                <input type="radio" name="filter" [(ngModel)]="filtro"  [value]="undefined">Todas
+            </label>
+            <label class="radio-inline ml-1">
+                <input type="radio" name="filter" [(ngModel)]="filtro"  [value]="true">En Alquiler
+            </label>
+            <label class="radio-inline ml-1">
+                <input type="radio" name="filter" [(ngModel)]="filtro"  [value]="false">En Venta
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-12">
+            <ul class="list-group">
+                <li class="list-group-item" [class.active]="c == casaSeleccionada" *ngFor="let c of casas | alquiler: filtro | precio: precioMin : precioMax" (click)="seleccionarCasa(c)">
+                    <p class="text">{{ c.nombre }}, <i>{{ c.direccion }}</i><p>
+                </li>
+            </ul> 
+        </div>  <!-- LISTADO -->
+
+        <div class="col-lg-8 col-md-12">
+            <app-detalle [_casa]="casaSeleccionada"></app-detalle>
+        </div>  <!--DETALLE-->
+    </div> <!--.ROW-->
+</div>

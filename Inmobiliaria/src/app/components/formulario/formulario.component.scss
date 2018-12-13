@@ -1,0 +1,19 @@
+
+form {
+    padding:5vh;
+    margin: 0 auto;
+    background: #A399A7;
+    border-radius: 10px;
+    label {
+        color: darkblue;
+    }
+    input[type=text], input[type=number] {
+        font-weight: bold;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
